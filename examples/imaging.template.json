@@ -1,0 +1,21 @@
+{
+  "input": "../data/your_imaging_counts.h5ad",
+  "out": "../outputs/imaging",
+  "modality": "spatial",
+  "platform": "imaging",
+  "species": "human",
+  "tissue": "skin",
+  "counts_layer": "counts",
+  "min_genes": 10,
+  "min_cells": 3,
+  "max_pct_mt": 100,
+  "normalization": "area",
+  "area_key": "cell_area",
+  "sample_key": "sample_id",
+  "spatial_key": "spatial",
+  "coordinate_units": "micron",
+  "radius": 50,
+  "n_permutations": 999,
+  "marker_file": "../data/your_tissue_markers.json",
+  "annotation_key": "your_existing_label_column"
+}

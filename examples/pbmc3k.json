@@ -1,0 +1,12 @@
+{
+  "input": "../data/pbmc3k.h5ad",
+  "out": "../outputs/pbmc3k",
+  "tissue": "pbmc",
+  "species": "human",
+  "counts_layer": "counts",
+  "min_genes": 200,
+  "min_cells": 3,
+  "max_pct_mt": 5,
+  "resolution": 0.5,
+  "n_hvg": 2000
+}
