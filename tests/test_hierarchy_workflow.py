@@ -2,6 +2,7 @@ import json
 
 import anndata as ad
 import numpy as np
+import pandas as pd
 import pytest
 
 from omicsagent.config import load_config
@@ -26,6 +27,8 @@ def test_full_hierarchy_preserves_counts_and_corrects_misplaced_cells(hierarchy_
     assert wrong.sum() > 0
     assert (result.obs.loc[wrong, 'oa_l1'] == original.obs.loc[wrong, 'truth_l1']).all()
     assert (cfg.out / 'hierarchy' / 'decisions.csv').exists()
+    assert (cfg.out / 'report.html').exists()
+    assert (cfg.out / 'review.json').exists()
     summary = json.loads((cfg.out / 'summary.json').read_text())['hierarchy']
     assert summary['stop_reason'] == 'exact_stability'
     assert summary['iterations'] >= 2
@@ -86,6 +89,13 @@ def test_conflicting_atlas_subtype_does_not_validate_l2(hierarchy_demo):
     result = ad.read_h5ad(cfg.out/'result.h5ad')
     myeloid = result.obs.truth_l1 == 'Myeloid'
     assert (result.obs.loc[myeloid,'oa_l2'] == 'Unknown').all()
+    decisions = pd.read_csv(cfg.out/'hierarchy'/'decisions.csv')
+    kept = decisions[(decisions.source_l1 == 'Myeloid') & (decisions.decision == 'Keep')]
+    assert not kept.empty
+    assert (kept.l1_reason == 'marker_supported_current').all()
+    assert (kept.l2_reason == 'marker_reference_conflict').all()
+    assert (kept.l2_marker_strong).all()
+    assert (kept.selected_l2 == 'Unknown').all()
 
 
 def test_bounded_agent_calls_hierarchy_and_generates_report(hierarchy_demo):

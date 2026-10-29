@@ -31,7 +31,7 @@ def scan_tree(root: Path) -> list[dict[str, str]]:
             findings.append({'file':str(relative),'rule':'forbidden_path'})
             continue
         try:
-            content = path.read_text()
+            content = path.read_text(encoding='utf-8')
         except UnicodeError:
             findings.append({'file':str(relative),'rule':'unreviewed_binary'})
             continue

@@ -1,0 +1,118 @@
+{
+  "initial_l1_key": "initial_l1",
+  "compartments": {
+    "immune": [
+      "T cell",
+      "B cell",
+      "Myeloid",
+      "NK cell"
+    ]
+  },
+  "l1_markers": {
+    "T cell": [
+      "CD3D",
+      "CD3E",
+      "TRAC"
+    ],
+    "B cell": [
+      "CD79A",
+      "CD79B",
+      "MS4A1"
+    ],
+    "Myeloid": [
+      "LYZ",
+      "LST1",
+      "TYROBP"
+    ],
+    "NK cell": [
+      "NKG7",
+      "GNLY",
+      "KLRD1"
+    ]
+  },
+  "l2_markers": {
+    "CD4 T": [
+      "IL7R",
+      "CCR7",
+      "LTB"
+    ],
+    "CD8 T": [
+      "CD8A",
+      "CD8B",
+      "CCL5"
+    ],
+    "Naive B": [
+      "TCL1A",
+      "IGHD",
+      "IL4R"
+    ],
+    "Memory B": [
+      "CD27",
+      "AIM2",
+      "TNFRSF13B"
+    ],
+    "Plasma": [
+      "MZB1",
+      "JCHAIN",
+      "SDC1"
+    ],
+    "Monocyte": [
+      "FCN1",
+      "CTSS",
+      "LYZ"
+    ],
+    "Macrophage": [
+      "C1QA",
+      "C1QB",
+      "APOE"
+    ],
+    "Neutrophil": [
+      "FCGR3B",
+      "CSF3R",
+      "S100A8"
+    ],
+    "NK": [
+      "NKG7",
+      "GNLY",
+      "KLRD1"
+    ]
+  },
+  "l2_parent": {
+    "CD4 T": "T cell",
+    "CD8 T": "T cell",
+    "Naive B": "B cell",
+    "Memory B": "B cell",
+    "Plasma": "B cell",
+    "Monocyte": "Myeloid",
+    "Macrophage": "Myeloid",
+    "Neutrophil": "Myeloid",
+    "NK": "NK cell"
+  },
+  "excluded_genes": [
+    "IRF7",
+    "BST2"
+  ],
+  "batch_key": null,
+  "reference_l1_key": "reference_l1",
+  "reference_l2_key": "reference_l2",
+  "reference_counts_layer": "counts",
+  "min_shared_genes": 30,
+  "max_dense_elements": 120000000,
+  "max_iterations": 3,
+  "movement_tolerance": 0.005,
+  "min_pool_size": 12,
+  "min_cluster_size": 5,
+  "min_markers": 2,
+  "detection_fraction": 0.2,
+  "margin": 0.5,
+  "subtype_margin": 0.5,
+  "atlas_purity": 0.7,
+  "atlas_vote": 0.6,
+  "n_pcs": 15,
+  "n_neighbors": 15,
+  "n_hvg": 2000,
+  "resolution": 0.5,
+  "spatial_level": "l1",
+  "mode": "cell",
+  "reference_sha256": "3dd3b39bb36014f0e404e571cd2a33ee373596c26e6db35cb3c27dcee5ef34e0"
+}

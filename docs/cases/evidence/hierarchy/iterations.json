@@ -1,0 +1,20 @@
+[
+  {
+    "iteration": 1,
+    "moved_cells": 18,
+    "max_cluster_fraction": 0.0018509949097639982,
+    "total_fraction_by_pool": {
+      "immune": 0.008329477093937991
+    },
+    "pools": [
+      {
+        "pool": "immune",
+        "size": 2161,
+        "harmony": "not_requested",
+        "n_pcs": 15,
+        "n_genes": 2000
+      }
+    ],
+    "stop_reason": "tolerance"
+  }
+]

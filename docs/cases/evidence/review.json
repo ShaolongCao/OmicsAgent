@@ -1,0 +1,4690 @@
+{
+  "schema_version": 1,
+  "run_hash": "01d9bca019896aeb4ff82a42c1e2747117096bef6fdaa301904d9be99244a1f7",
+  "provenance": {
+    "dataset": "Tabula Sapiens v1 bone marrow, Figshare release v5",
+    "source_url": "https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219/5",
+    "doi": "10.6084/m9.figshare.14267219.v5",
+    "download_url": "https://ndownloader.figshare.com/files/34701967",
+    "archive_md5": "1b665025142b0c74f7b63d7310b379d4",
+    "source_h5ad_sha256": "4e08b45d5668c7cc741ccddafd2626f65303ce764be4f3ebc1b7778d60c30c64",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "citation": "The Tabula Sapiens Consortium, Science 376, eabl4896 (2022). doi:10.1126/science.abl4896",
+    "data_kind": "real",
+    "donor_key": "donor",
+    "reference_donors": [
+      "TSP2"
+    ],
+    "query_donors": [
+      "TSP11",
+      "TSP14"
+    ],
+    "sampling": "10X only; stable cell-ID order; cap 150 per donor/published fine label",
+    "excluded": "Unmapped published classes excluded; no artificial label corruption",
+    "reference_cells": 1198,
+    "query_cells": 2286,
+    "n_genes": 25064,
+    "limits": "Published labels are reference metadata, not independent ground truth. Panels and thresholds are illustrative; no biological accuracy claim. One NK module cannot establish a subtype margin.",
+    "source_run_hash": "0941406afea6ff3b3b4c1ab26730879b1a5f7dad20108d95b6afbe5be1d9adb6",
+    "bundle_note": "Numerical CSVs are unchanged. Absolute path fields in JSON/JSONL are replaced by basenames; original hashes are retained in manifest. Count matrices are retrieved separately with prepare-review."
+  },
+  "selection": {
+    "policy": "Final-round rows; largest n_cells, then cluster/source label",
+    "eligible": {
+      "agreement": 7,
+      "conflict": 5,
+      "insufficient": 17
+    },
+    "excluded_resolved_without_dual_support": 2,
+    "final_iteration": 1,
+    "skipped_pools": [],
+    "missing": [],
+    "complete": true
+  },
+  "cases": [
+    {
+      "id": "1:r1:immune:18:B cell",
+      "kind": "agreement",
+      "iteration": 1,
+      "cluster": "r1:immune:18",
+      "n_cells": 121,
+      "evidence_n_cells": 121,
+      "l1": "B cell",
+      "l2": "Plasma",
+      "l1_supported": true,
+      "original_l1": "B cell",
+      "proposed_l1": "B cell",
+      "support": [
+        "L1 marker winner B cell; margin 0.536; detection gate passed.",
+        "Reference L1 B cell: purity 0.975, median vote 1.000.",
+        "L2 Plasma: marker_supported."
+      ],
+      "counterevidence": [
+        "Per-cell marker/reference winners differ in 10/118 evaluable cells; cluster agreement does not imply uniform cells."
+      ],
+      "unresolved": "Provisional annotation; independent biological validation remains open.",
+      "next_check": null,
+      "decision": {
+        "iteration": 1,
+        "cluster": "r1:immune:18",
+        "pool": "immune",
+        "n_cells": 121,
+        "source_l1": "B cell",
+        "target_l1": "B cell",
+        "marker_best": "B cell",
+        "marker_margin": 0.5362404593326615,
+        "marker_strong": true,
+        "atlas_l1": "B cell",
+        "atlas_purity": 0.975206611570248,
+        "atlas_vote": 1.0,
+        "atlas_l2": "Plasma",
+        "atlas_l2_purity": 0.9669421487603306,
+        "atlas_l2_vote": 1.0,
+        "decision": "Keep",
+        "l1_reason": "marker_supported_current",
+        "l2_marker_best": "Plasma",
+        "l2_marker_strong": true,
+        "l2_marker_margin": 2.086519649203556,
+        "l2_reason": "marker_supported",
+        "selected_l2": "Plasma"
+      },
+      "markers": [
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "CD3D",
+          "mean_log_expression": 0.0048299930584398,
+          "fraction_detected": 0.0330578512396694
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "CD3E",
+          "mean_log_expression": 0.020794672348568,
+          "fraction_detected": 0.0743801652892562
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "TRAC",
+          "mean_log_expression": 0.0168718094083313,
+          "fraction_detected": 0.0578512396694214
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "CD79A",
+          "mean_log_expression": 0.6890374298630892,
+          "fraction_detected": 0.7190082644628097
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "CD79B",
+          "mean_log_expression": 0.3883179053687031,
+          "fraction_detected": 0.743801652892562
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "MS4A1",
+          "mean_log_expression": 0.0220321455746594,
+          "fraction_detected": 0.024793388429752
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "LST1",
+          "mean_log_expression": 0.0081901940088299,
+          "fraction_detected": 0.0495867768595041
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "LYZ",
+          "mean_log_expression": 0.1521499348267216,
+          "fraction_detected": 0.28099173553719
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "TYROBP",
+          "mean_log_expression": 0.0573189661292512,
+          "fraction_detected": 0.1157024793388429
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "GNLY",
+          "mean_log_expression": 0.0222098450021509,
+          "fraction_detected": 0.0578512396694214
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "KLRD1",
+          "mean_log_expression": 0.0019340600159682,
+          "fraction_detected": 0.0082644628099173
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "NKG7",
+          "mean_log_expression": 0.0342252613312795,
+          "fraction_detected": 0.1157024793388429
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "CCR7",
+          "mean_log_expression": 0.0085104529559189,
+          "fraction_detected": 0.0413223140495867
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "IL7R",
+          "mean_log_expression": 0.0419300814977688,
+          "fraction_detected": 0.0826446280991735
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "LTB",
+          "mean_log_expression": 0.031862209744729,
+          "fraction_detected": 0.0743801652892562
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CCL5",
+          "mean_log_expression": 0.0187400792494406,
+          "fraction_detected": 0.0413223140495867
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CD8A",
+          "mean_log_expression": 0.0149021202260452,
+          "fraction_detected": 0.0495867768595041
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CD8B",
+          "mean_log_expression": 0.0090857726626193,
+          "fraction_detected": 0.024793388429752
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Naive B",
+          "gene": "IGHD",
+          "mean_log_expression": 0.2696716912879143,
+          "fraction_detected": 0.3471074380165289
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Naive B",
+          "gene": "IL4R",
+          "mean_log_expression": 0.009684383699257,
+          "fraction_detected": 0.0495867768595041
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "AIM2",
+          "mean_log_expression": 0.0363556267789352,
+          "fraction_detected": 0.0991735537190082
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "CD27",
+          "mean_log_expression": 0.663973154656587,
+          "fraction_detected": 0.7272727272727273
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "TNFRSF13B",
+          "mean_log_expression": 0.1413382830077049,
+          "fraction_detected": 0.3553719008264462
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "JCHAIN",
+          "mean_log_expression": 1.8802338578606224,
+          "fraction_detected": 0.6694214876033058
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "MZB1",
+          "mean_log_expression": 2.8319657487986296,
+          "fraction_detected": 1.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "SDC1",
+          "mean_log_expression": 1.030865632965419,
+          "fraction_detected": 0.8925619834710743
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "CTSS",
+          "mean_log_expression": 0.6052630858846453,
+          "fraction_detected": 0.8347107438016528
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "FCN1",
+          "mean_log_expression": 0.0347797969720643,
+          "fraction_detected": 0.0991735537190082
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "LYZ",
+          "mean_log_expression": 0.1521499348267216,
+          "fraction_detected": 0.28099173553719
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "APOE",
+          "mean_log_expression": 0.0256456262946187,
+          "fraction_detected": 0.0578512396694214
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "C1QA",
+          "mean_log_expression": 0.0192526975805371,
+          "fraction_detected": 0.0330578512396694
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "C1QB",
+          "mean_log_expression": 0.02103237840494,
+          "fraction_detected": 0.024793388429752
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "CSF3R",
+          "mean_log_expression": 0.0509978164316742,
+          "fraction_detected": 0.1487603305785124
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "FCGR3B",
+          "mean_log_expression": 0.0088888955312147,
+          "fraction_detected": 0.024793388429752
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "S100A8",
+          "mean_log_expression": 0.789435374251424,
+          "fraction_detected": 0.7603305785123966
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "NK",
+          "gene": "GNLY",
+          "mean_log_expression": 0.0222098450021509,
+          "fraction_detected": 0.0578512396694214
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "NK",
+          "gene": "KLRD1",
+          "mean_log_expression": 0.0019340600159682,
+          "fraction_detected": 0.0082644628099173
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:18",
+          "level": "l2",
+          "label": "NK",
+          "gene": "NKG7",
+          "mean_log_expression": 0.0342252613312795,
+          "fraction_detected": 0.1157024793388429
+        }
+      ],
+      "coverage": {
+        "l1": {
+          "T cell": [
+            "CD3D",
+            "CD3E",
+            "TRAC"
+          ],
+          "B cell": [
+            "CD79A",
+            "CD79B",
+            "MS4A1"
+          ],
+          "Myeloid": [
+            "LST1",
+            "LYZ",
+            "TYROBP"
+          ],
+          "NK cell": [
+            "GNLY",
+            "KLRD1",
+            "NKG7"
+          ]
+        },
+        "l2": {
+          "CD4 T": [
+            "CCR7",
+            "IL7R",
+            "LTB"
+          ],
+          "CD8 T": [
+            "CCL5",
+            "CD8A",
+            "CD8B"
+          ],
+          "Naive B": [
+            "IGHD",
+            "IL4R"
+          ],
+          "Memory B": [
+            "AIM2",
+            "CD27",
+            "TNFRSF13B"
+          ],
+          "Plasma": [
+            "JCHAIN",
+            "MZB1",
+            "SDC1"
+          ],
+          "Monocyte": [
+            "CTSS",
+            "FCN1",
+            "LYZ"
+          ],
+          "Macrophage": [
+            "APOE",
+            "C1QA",
+            "C1QB"
+          ],
+          "Neutrophil": [
+            "CSF3R",
+            "FCGR3B",
+            "S100A8"
+          ],
+          "NK": [
+            "GNLY",
+            "KLRD1",
+            "NKG7"
+          ]
+        },
+        "excluded": [
+          "IRF7",
+          "BST2"
+        ]
+      },
+      "donor_summary": [
+        {
+          "donor": "TSP11",
+          "n_evaluable": 83,
+          "n_cluster_cells": 83,
+          "n_disagree": 4,
+          "disagreement_fraction": 0.04819277108433735
+        },
+        {
+          "donor": "TSP14",
+          "n_evaluable": 35,
+          "n_cluster_cells": 38,
+          "n_disagree": 6,
+          "disagreement_fraction": 0.17142857142857143
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "AACTCTTGTAGAAAGG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AACTGGTGTCGCATCG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACACCAATCCGTACAA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACCGTTCGTGAGTAGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACGATGTCAAGCGTAG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACGGAGAAGTGGTAGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACTGAACGTATGCTTG_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACTGAGTTCCACGACG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ACTGATGAGCTAACTC_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AGCCTAAGTCCCTACT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AGCGTATCACAGACAG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AGCTCTCAGCAATCTC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AGGCCACTCTCAAGTG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AGGTCTACAATTGCAC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "AGTGAGGGTTCCAACA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATCACGAAGTGCCGAA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATCGGATGTATAGGAT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATCGTAGAGGGTATAT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATCGTCCAGTCAATCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATGAGGGAGTGGAGAA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATGATCGGTAGACTGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATGCGATCAGCTGTGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATTACCTTCGTCCTCA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATTGGTGCAGGCTGAA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "ATTTCTGAGACCGGAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CAAGATCCAAACAACA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CACAGTAAGAGTCTGG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CACATTTCATTCGACA_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CACCACTTCACAGTAC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CACTCCAGTGACGGTA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CATCAAGAGTCCAGGA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CATCAGACACGACTCG_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CATGACAAGAAGGCCT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CATGACAAGACTAGAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CATGCCTTCCGCAGTG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CATTATCGTCCGTTAA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CCCTCCTGTGTAACGG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CCGTACTAGCAACGGT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CCTACCACAATGTAAG_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CCTTCCCAGACAAGCC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CCTTTCTCACCTCGTT_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGAGCACTCGCATGAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGAGCCAAGCACAGGT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGATCGGGTGTTAAGA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGCCAAGCACAACGCC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGCTATCCAGTGAGTG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGCTGGATCAGCTGGC_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGACACAGGTTCCTA_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGACACTCTCGCATC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGAGCTAGCGATTCT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGAGCTCACGAAAGC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGAGTCGTCTAGAGG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGCTAGAGATTACCC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGGTCAGTCATGCCG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGGTTAAAGCAGATCG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CGTCCATTCACCCTCA_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTATAGGTCTCCGAGG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTCGAGGGTCGACTAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTGAAACTCATGCTCC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTGCCTAAGGCTAGCA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTGTAGAAGACCTTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTGTGAAGTCCTGGTG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "CTTAGGAAGCGTTCCG_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GAAATGATCGGTCACG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GAACCTAAGAGGTTGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GAAGCAGCAGCTCGAC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GACAGAGAGGCGACAT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GATCAGTTCCTATTCA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GATCGTATCTTCAACT_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GATCTAGGTGAAAGAG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GATTCTTAGGGCAACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCACATATCATGCAAC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCATACAAGGGAAACA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCATCTCAGAAATTCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCCTCTAAGTGTTTGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCGACCAGTCTGCCAG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCGCCAACAAAGTCAA_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GCTCTGTGTAGAGGAA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGAACTTAGTACACCT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGAACTTTCCAAACTG_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGAATAAGTTCTGAAC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGAATAATCAACACAC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGCAATTAGTTGTAGA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGCTCGACACATGTGT_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGGAATGCATTGGGCC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGGACCTAGCTGAACG_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGTGTTAAGGCTCAGA_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GGTGTTACACGGACAA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GTAACTGGTCGCATAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GTAGTCACATTATCTC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GTCACGGCAACTGCTA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GTCTTCGTCGTTACAG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GTGAAGGGTTGCCTCT_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "GTGTTAGGTTCTGGTA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TAAGCACGTCCCGTGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TAAGCGTCATCGATTG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TACCTATAGACAATAC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TACCTATCAAGCGAGT_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TACTCGCAGGATATAC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TACTCGCTCGGCGGTT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TACTTGTCAGACATCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TACTTGTTCTGTCTAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TAGTGCACAGCAATTC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCAACGACAGTCGTGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCAATCTCAGTCGATT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCAGGATTCCTATTCA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCGAGGCCACAACGTT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCGAGGCTCCCTGACT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCTCTAACATGTAAGA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCTGAGAGTACCGTAT_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TCTGGAATCGAATGGG_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TGAACGTAGTTGGACG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TGCCAAATCGGAAATA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TGCGACGTCAAGCGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TGCTACCGTCGAAAGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TGTGTTTAGTGGTAGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TTCCCAGAGATCCCGC_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TTCCCAGTCTGCGTAA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TTGAACGTCTTGACGA_TSP11_BoneMarrow_NA_10X_1_1_LinDepleted",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TTGACTTTCTCAACTT_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        },
+        {
+          "cell_id": "TTTACCAAGCTGAAAT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "B cell",
+          "proposed_l1": "B cell",
+          "proposed_l2": "Plasma"
+        }
+      ],
+      "links": {
+        "Decision table": "hierarchy/decisions.csv",
+        "Marker measurements": "hierarchy/dotplot_data.csv",
+        "Marker coverage": "hierarchy/marker_coverage.json",
+        "Iteration and stopping record": "hierarchy/iterations.json",
+        "Parameters": "hierarchy/config.json",
+        "Cell membership": "hierarchy/round_1_cells.csv",
+        "Configuration": "config.json",
+        "Manifest": "manifest.json",
+        "Execution trace": "trace.jsonl"
+      },
+      "evidence_ids": [
+        "1:r1:immune:18:B cell:decision",
+        "1:r1:immune:18:B cell:markers",
+        "1:r1:immune:18:B cell:membership"
+      ]
+    },
+    {
+      "id": "1:r1:immune:5:Myeloid",
+      "kind": "conflict",
+      "iteration": 1,
+      "cluster": "r1:immune:5",
+      "n_cells": 238,
+      "evidence_n_cells": 238,
+      "l1": "Myeloid",
+      "l2": "Unknown",
+      "l1_supported": true,
+      "original_l1": "Myeloid",
+      "proposed_l1": "Myeloid",
+      "support": [
+        "L1 marker winner Myeloid; margin 1.164; detection gate passed.",
+        "Reference L1 Myeloid: purity 1.000, median vote 1.000.",
+        "L2 marker winner Neutrophil passes the marker gate."
+      ],
+      "counterevidence": [
+        "Reference L2 Monocyte conflicts with the marker winner; purity 1.000, median vote 1.000."
+      ],
+      "unresolved": "No subtype assigned.",
+      "next_check": {
+        "kind": "cross_donor_conflict",
+        "observation": "Across 2 donors with at least 5 evaluable cells, marker/reference disagreement ranges 99.6% to 100.0%.",
+        "reason": "Disagreement is observed in both available donors. Compare the competing subtype markers in this cluster and its mapped reference cells before accepting either subtype. This can expose panel specificity or reference annotation mismatch; the donor counts are descriptive, not a replication test."
+      },
+      "decision": {
+        "iteration": 1,
+        "cluster": "r1:immune:5",
+        "pool": "immune",
+        "n_cells": 238,
+        "source_l1": "Myeloid",
+        "target_l1": "Myeloid",
+        "marker_best": "Myeloid",
+        "marker_margin": 1.16430543661542,
+        "marker_strong": true,
+        "atlas_l1": "Myeloid",
+        "atlas_purity": 1.0,
+        "atlas_vote": 1.0,
+        "atlas_l2": "Monocyte",
+        "atlas_l2_purity": 1.0,
+        "atlas_l2_vote": 1.0,
+        "decision": "Keep",
+        "l1_reason": "marker_supported_current",
+        "l2_marker_best": "Neutrophil",
+        "l2_marker_strong": true,
+        "l2_marker_margin": 1.3218589072563862,
+        "l2_reason": "marker_reference_conflict",
+        "selected_l2": "Unknown"
+      },
+      "markers": [
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "CD3D",
+          "mean_log_expression": 0.0057395679356333,
+          "fraction_detected": 0.0042016806722689
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "CD3E",
+          "mean_log_expression": 0.0148957805718092,
+          "fraction_detected": 0.0126050420168067
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "TRAC",
+          "mean_log_expression": 0.009165548777246,
+          "fraction_detected": 0.0084033613445378
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "CD79A",
+          "mean_log_expression": 0.0134080388318094,
+          "fraction_detected": 0.0126050420168067
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "CD79B",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "MS4A1",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "LST1",
+          "mean_log_expression": 1.8011505133907373,
+          "fraction_detected": 0.899159663865546
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "LYZ",
+          "mean_log_expression": 1.8063337355104905,
+          "fraction_detected": 0.899159663865546
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "TYROBP",
+          "mean_log_expression": 2.4337026151730523,
+          "fraction_detected": 0.949579831932773
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "GNLY",
+          "mean_log_expression": 0.0204270086946931,
+          "fraction_detected": 0.0210084033613445
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "KLRD1",
+          "mean_log_expression": 0.0206673893782511,
+          "fraction_detected": 0.0210084033613445
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "NKG7",
+          "mean_log_expression": 0.0942690947020567,
+          "fraction_detected": 0.0798319327731092
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "CCR7",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "IL7R",
+          "mean_log_expression": 0.0158188383213454,
+          "fraction_detected": 0.0168067226890756
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "LTB",
+          "mean_log_expression": 0.8993195235989704,
+          "fraction_detected": 0.6176470588235293
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CCL5",
+          "mean_log_expression": 0.0244967009489709,
+          "fraction_detected": 0.0168067226890756
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CD8A",
+          "mean_log_expression": 0.0103323615286295,
+          "fraction_detected": 0.0084033613445378
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CD8B",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Naive B",
+          "gene": "IGHD",
+          "mean_log_expression": 0.0597752796513755,
+          "fraction_detected": 0.0546218487394957
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Naive B",
+          "gene": "IL4R",
+          "mean_log_expression": 0.7821820755571618,
+          "fraction_detected": 0.5798319327731092
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "AIM2",
+          "mean_log_expression": 0.2522484212914021,
+          "fraction_detected": 0.2184873949579832
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "CD27",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "TNFRSF13B",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "JCHAIN",
+          "mean_log_expression": 0.0458480087148941,
+          "fraction_detected": 0.0462184873949579
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "MZB1",
+          "mean_log_expression": 0.02528559307008,
+          "fraction_detected": 0.0294117647058823
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "SDC1",
+          "mean_log_expression": 0.0051049620389581,
+          "fraction_detected": 0.0042016806722689
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "CTSS",
+          "mean_log_expression": 2.880815628886777,
+          "fraction_detected": 0.9873949579831932
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "FCN1",
+          "mean_log_expression": 1.8008601634598955,
+          "fraction_detected": 0.899159663865546
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "LYZ",
+          "mean_log_expression": 1.8063337355104905,
+          "fraction_detected": 0.899159663865546
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "APOE",
+          "mean_log_expression": 0.0139025374583057,
+          "fraction_detected": 0.0126050420168067
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "C1QA",
+          "mean_log_expression": 0.0193279129278423,
+          "fraction_detected": 0.0210084033613445
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "C1QB",
+          "mean_log_expression": 0.0090099611908946,
+          "fraction_detected": 0.0084033613445378
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "CSF3R",
+          "mean_log_expression": 3.1826423639275228,
+          "fraction_detected": 0.9999999999999998
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "FCGR3B",
+          "mean_log_expression": 2.953210686505748,
+          "fraction_detected": 0.9999999999999998
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "S100A8",
+          "mean_log_expression": 6.216249917543275,
+          "fraction_detected": 0.9999999999999998
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "NK",
+          "gene": "GNLY",
+          "mean_log_expression": 0.0204270086946931,
+          "fraction_detected": 0.0210084033613445
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "NK",
+          "gene": "KLRD1",
+          "mean_log_expression": 0.0206673893782511,
+          "fraction_detected": 0.0210084033613445
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:5",
+          "level": "l2",
+          "label": "NK",
+          "gene": "NKG7",
+          "mean_log_expression": 0.0942690947020567,
+          "fraction_detected": 0.0798319327731092
+        }
+      ],
+      "coverage": {
+        "l1": {
+          "T cell": [
+            "CD3D",
+            "CD3E",
+            "TRAC"
+          ],
+          "B cell": [
+            "CD79A",
+            "CD79B",
+            "MS4A1"
+          ],
+          "Myeloid": [
+            "LST1",
+            "LYZ",
+            "TYROBP"
+          ],
+          "NK cell": [
+            "GNLY",
+            "KLRD1",
+            "NKG7"
+          ]
+        },
+        "l2": {
+          "CD4 T": [
+            "CCR7",
+            "IL7R",
+            "LTB"
+          ],
+          "CD8 T": [
+            "CCL5",
+            "CD8A",
+            "CD8B"
+          ],
+          "Naive B": [
+            "IGHD",
+            "IL4R"
+          ],
+          "Memory B": [
+            "AIM2",
+            "CD27",
+            "TNFRSF13B"
+          ],
+          "Plasma": [
+            "JCHAIN",
+            "MZB1",
+            "SDC1"
+          ],
+          "Monocyte": [
+            "CTSS",
+            "FCN1",
+            "LYZ"
+          ],
+          "Macrophage": [
+            "APOE",
+            "C1QA",
+            "C1QB"
+          ],
+          "Neutrophil": [
+            "CSF3R",
+            "FCGR3B",
+            "S100A8"
+          ],
+          "NK": [
+            "GNLY",
+            "KLRD1",
+            "NKG7"
+          ]
+        },
+        "excluded": [
+          "IRF7",
+          "BST2"
+        ]
+      },
+      "donor_summary": [
+        {
+          "donor": "TSP11",
+          "n_evaluable": 6,
+          "n_cluster_cells": 6,
+          "n_disagree": 6,
+          "disagreement_fraction": 1.0
+        },
+        {
+          "donor": "TSP14",
+          "n_evaluable": 232,
+          "n_cluster_cells": 232,
+          "n_disagree": 231,
+          "disagreement_fraction": 0.9956896551724138
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "AAACGAAAGCTCCACG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGATAGGAGGCAG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGGCCAATTCTCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGTACATGTCGTA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGTCCAGACGAGCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAAGAGTCTACACA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACACGTAGCTAAACA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCATGGTCCCTCAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGGGAAGTCGGCCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGGGAGTGGCAGAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGTCAAGCCACCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGTCATCTAGAACC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACTTCTAGACAGCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACTTCTGTAGAGATT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACTCTCATTTGCT_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGATAGAGGAGGCAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCATCTCAGTGTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGTTCACTTGGCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGTTGTCTTCTAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGTTTCACTTGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGGAATAGCATCCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGGTAATCGGTGTTA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGTCGTTCGCTCTCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCACGTCTTCACAT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCGACTCCCTGTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGACCCAAGACGGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGCCATCATTTCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGGCTGTTAGAAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGGCTTCTTCCTAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATTCCTGTCCTACAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTGTATTTCGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTGTGTAACGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACGCGAGTGCGCTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGAAAGTGTTTGCA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGCCGCATTACCTT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGCCGGTGGTAATA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGCCGTCTCCATAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGGGAGTTGGACTT_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACATCGATCTGAACGT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCAACAAGCTAGAAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCACAATCGATTGAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCCAAAAGCACTTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCCTTGAGTTCCTGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCGTTCGTATTTCTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCTACCGTGGCTCTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACCTGAATCTCAATCT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACGCACGAGGAGAATG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACGGAAGAGGTAAAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACGTAACTCAGTGTGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACGTAGTCATGGCTGC_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTATCTGTACAAAGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTATGGCAATAGGAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTATGGCACAGCTTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTGAGTCACAGACAG_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTGATGAGTAGAGTT_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTGCAAAGGGCCCTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTGTCCGTCACTCAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTGTCCTCACTGGTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTTCGCAGCACTCGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTTTCACAGATGCGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACTTTGTCACGCTGAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGAAGTACAGTGAGCA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGACAGGGTGTGTGGA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGACCATCAAACCACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGACCCGCACAGTCGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGAGCAGAGCCGATCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGAGCAGGTCACGTGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGATAGATCGCCGTGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGATCGTTCGCATGAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGATGCTGTGCGAACA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCATCACACTTTAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCCAATCACCCTTAC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCCACGAGTATGTAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCCAGCCATGGAACG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCGATTGTCTTGAGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCGCCAAGGCTTTCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCGCTGCAGTCAGCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCGTCGCATATCGGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCTTCCTCTCATTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGAGGTAGGTTGGAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGATAACACAAACGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGCTGCGTGCCGTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGGAGTGTCGCCACA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGGCCTGTTGAATCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGGTTTAGGGAACAA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGGTCATCATGTTTGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTAACCAGTTACGTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTAGCTAGTCCTGTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTAGCTGTCGATGCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTGATCAGGCTAAAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTGATCCAAGTCGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTTAGCAGCTCATAC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGTTCGAGTGATTCTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATAGAGAAGCAGGTCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATAGAGAGTCGAGTGA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATAGGCTAGACGACTG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCACAGAGACAACAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCACAGGTATCGTGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCAGGTCAAACGTGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCAGGTTCAGAGCAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCATTCGTGAGCCAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCCACCAGCCGGATA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCCCTGAGCTTGTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCCGTCTCTAGACCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCCTATGTATTTCTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCGGATCATCGCTCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCGTAGCAGTTAAAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCGTCCAGCATGTTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCTCTAGTGTTCCTC_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATCTTCATCTTTCCGG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGATCGAGAAACCCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGATCGTCAAAGACA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGCCTCCAAAGAACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGCCTCGTTTCACAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGGGTTCACAAGCAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGGTTGGTAATCAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGTCTTAGTCCCGGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGTCTTCACTGCACG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGTCTTGTACCAGAG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATGTCTTGTCATCAGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTACCTAGTGGTTAA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTACTCAGCAACTCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTATCCAGAATCCCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTCACTAGCTCCACG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTCCATCAATCTGCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTCCCGCATATCGGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTCTTGCAGAGGTTG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTTCACGTATCTCGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ATTTCTGGTGAGAACC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAAAGAAGTGGACTAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAACAACGTTGCCGCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAACGATTCAAAGGTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAACGGCAGCTACTGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAACGGCCACAGTATC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAAGAGGCAGAGGTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAAGGGAGTCGCCTAG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACAACAGTTACAGCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACAACATCGGTGTAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACATAGTCTTTACGT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACGAATAGGTCCCTG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACGGGTGTACTGACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACTAAGTCACTTGGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACTAAGTCTTGGCTC_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACTGAACAGACCAAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAGAATCAGTACGCGA_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAGATCAGTGGTGTAG_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAGCAGCCACACTTAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAGGTATCAGTAGAAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAGTTCCCAATGAACA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATACCCAGTATTAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATACCCGTGAACCGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATACCCGTGTTACAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATACTTCAGTCGTTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATAGACAGAAGTCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATAGACCACTTTAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCCACAGCATTGTC_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCCACGTAGCTGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCCCACAGAACATA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCGGGAGATTGCGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCGGGGTTGGACCC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCGTCAGCAACTTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATCGTCCAGACCAAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATGCCTGTTAACAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CATGGTATCCTTTAGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCAATGAAGGGCGAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCAATTTGTTAGAAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACACTCAGCAGAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACCATCACTTTAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACGAGTCGCACGGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACGTTAGATAGGGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACGTTTCTGCGGAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACTTGGTGTTCCAA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCCAACTTCACTCACC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCGATCTCAACTGCCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCGGGTAGTGAACTAA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCGGTAGCACTTCCTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCGTTCACAGCGACCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCTAAGATCCAGCAAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCTATCGCAAGTGCAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCTCCAAAGGAAGAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCTGCATTCAAGAGGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGACAGCTCACTTTGT_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGAGGCTAGGTTCCAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGATGTAGTGGACGAT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGCAGGTCAAGAATGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGCATAATCACCTCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGCCATTGTAGCTGTT_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGCGTGACAGCTCCTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGGAGAAGTGTTACTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGTAGTATCGCAGTCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CGTGAATGTTGTCAGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTACCCACATCCTTGC_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTACGTCAGATCTGAA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTATCCGTCCAACTGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTCTGGTTCATAGCAC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTGATCCCAACGACTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTGTATTAGCTCACTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GACTTCCCAACCGGAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GAGAAATGTCACTGAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GAGTCATTCTAAGGAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GATCACAAGCTTCTAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GATGGAGAGTAAACAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGAACCCTCATAAGGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGACATTGTAAACACA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGCAGTCCAATTTCCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGCTTGGAGGGTGAAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGGATCCAGTCTACCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGGCGTTAGGAGATAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGTAATCCATCTCAAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGTAGAGCAGAGATTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGTGAAGAGGTGGCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GGTGTTACAATGGGTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTACGTAAGGCCATAG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTCAAACAGCGATGCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTGAGGAGTTGGAGGT_TSP14_BoneMarrow_NA_10X_3_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTGGCGTCACGTGAGA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTGTCCTCATCAGCAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTGTGGCGTAGCGATG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTTCCGTGTGATCATC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GTTTCTAGTGAGGGTT_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TAACCAGCATCTTAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TAAGCGTGTGGCTTGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TACAACGCACGGATCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TACATTCGTGACTCGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TATTGCTGTGAGACCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCAAGCAGTTCGGACC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCACACCAGACCATAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCATGAGCAAATTGGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCATGCCCAACGACTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCCTCCCAGTCCTACA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCTGGCTTCTTCACGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TGAGGAGTCAGTGGGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TGAGGGACAGCTCCTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TGATCAGCAGAAGCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TGATTTCAGCGGTAGT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TGGATCATCGATGCAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TTCGATTGTTGGAGAC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TTTACTGAGAGTAACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        }
+      ],
+      "links": {
+        "Decision table": "hierarchy/decisions.csv",
+        "Marker measurements": "hierarchy/dotplot_data.csv",
+        "Marker coverage": "hierarchy/marker_coverage.json",
+        "Iteration and stopping record": "hierarchy/iterations.json",
+        "Parameters": "hierarchy/config.json",
+        "Cell membership": "hierarchy/round_1_cells.csv",
+        "Configuration": "config.json",
+        "Manifest": "manifest.json",
+        "Execution trace": "trace.jsonl"
+      },
+      "evidence_ids": [
+        "1:r1:immune:5:Myeloid:decision",
+        "1:r1:immune:5:Myeloid:markers",
+        "1:r1:immune:5:Myeloid:membership"
+      ]
+    },
+    {
+      "id": "1:r1:immune:2:Myeloid",
+      "kind": "insufficient",
+      "iteration": 1,
+      "cluster": "r1:immune:2",
+      "n_cells": 142,
+      "evidence_n_cells": 144,
+      "l1": "Myeloid",
+      "l2": "Unknown",
+      "l1_supported": true,
+      "original_l1": "Myeloid",
+      "proposed_l1": "Myeloid",
+      "support": [
+        "L1 marker winner Myeloid; margin 1.188; detection gate passed.",
+        "Reference L1 Myeloid: purity 0.986, median vote 1.000."
+      ],
+      "counterevidence": [
+        "L2 unresolved: insufficient_marker_support."
+      ],
+      "unresolved": "No subtype assigned. Evidence is aggregated over 144 cluster cells; this review affects 142 cells with the recorded source label.",
+      "next_check": {
+        "kind": "subtype_separation",
+        "observation": "L2 marker margin 0.213 is below the configured minimum 0.500.",
+        "reason": "Inspect per-cell co-expression of the competing subtype markers to distinguish a mixed cluster from overlapping panels before accepting the reference subtype."
+      },
+      "decision": {
+        "iteration": 1,
+        "cluster": "r1:immune:2",
+        "pool": "immune",
+        "n_cells": 142,
+        "source_l1": "Myeloid",
+        "target_l1": "Myeloid",
+        "marker_best": "Myeloid",
+        "marker_margin": 1.1879870050374868,
+        "marker_strong": true,
+        "atlas_l1": "Myeloid",
+        "atlas_purity": 0.9861111111111112,
+        "atlas_vote": 1.0,
+        "atlas_l2": "Monocyte",
+        "atlas_l2_purity": 0.9722222222222222,
+        "atlas_l2_vote": 1.0,
+        "decision": "Keep",
+        "l1_reason": "marker_supported_current",
+        "l2_marker_best": "Neutrophil",
+        "l2_marker_strong": false,
+        "l2_marker_margin": 0.2128369755762198,
+        "l2_reason": "insufficient_marker_support",
+        "selected_l2": "Unknown"
+      },
+      "markers": [
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "CD3D",
+          "mean_log_expression": 0.0135893066470752,
+          "fraction_detected": 0.0138888888888888
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "CD3E",
+          "mean_log_expression": 0.0313827147892968,
+          "fraction_detected": 0.0208333333333333
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "T cell",
+          "gene": "TRAC",
+          "mean_log_expression": 0.0112816797799703,
+          "fraction_detected": 0.0138888888888888
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "CD79A",
+          "mean_log_expression": 0.0481739165085026,
+          "fraction_detected": 0.0347222222222222
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "CD79B",
+          "mean_log_expression": 0.0301572263271937,
+          "fraction_detected": 0.0208333333333333
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "B cell",
+          "gene": "MS4A1",
+          "mean_log_expression": 0.0295764519432402,
+          "fraction_detected": 0.0138888888888888
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "LST1",
+          "mean_log_expression": 1.363138219474835,
+          "fraction_detected": 0.8055555555555557
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "LYZ",
+          "mean_log_expression": 2.8824372082885823,
+          "fraction_detected": 0.9722222222222224
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "Myeloid",
+          "gene": "TYROBP",
+          "mean_log_expression": 2.006775448817653,
+          "fraction_detected": 0.8958333333333335
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "GNLY",
+          "mean_log_expression": 0.0058988673516385,
+          "fraction_detected": 0.0069444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "KLRD1",
+          "mean_log_expression": 0.0199708517329776,
+          "fraction_detected": 0.0208333333333333
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l1",
+          "label": "NK cell",
+          "gene": "NKG7",
+          "mean_log_expression": 0.6893737974778752,
+          "fraction_detected": 0.4444444444444445
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "CCR7",
+          "mean_log_expression": 0.0075369747767559,
+          "fraction_detected": 0.0069444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "IL7R",
+          "mean_log_expression": 0.0254047441650686,
+          "fraction_detected": 0.0208333333333333
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "CD4 T",
+          "gene": "LTB",
+          "mean_log_expression": 0.4420351829142964,
+          "fraction_detected": 0.361111111111111
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CCL5",
+          "mean_log_expression": 0.0569084578078451,
+          "fraction_detected": 0.0347222222222222
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CD8A",
+          "mean_log_expression": 0.0129637831538532,
+          "fraction_detected": 0.0069444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "CD8 T",
+          "gene": "CD8B",
+          "mean_log_expression": 0.0056232740942551,
+          "fraction_detected": 0.0069444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Naive B",
+          "gene": "IGHD",
+          "mean_log_expression": 0.0695590417451217,
+          "fraction_detected": 0.0694444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Naive B",
+          "gene": "IL4R",
+          "mean_log_expression": 0.4900166198208244,
+          "fraction_detected": 0.4513888888888889
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "AIM2",
+          "mean_log_expression": 0.0048926297142086,
+          "fraction_detected": 0.0069444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "CD27",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Memory B",
+          "gene": "TNFRSF13B",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "JCHAIN",
+          "mean_log_expression": 0.0484657487558038,
+          "fraction_detected": 0.0486111111111111
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "MZB1",
+          "mean_log_expression": 0.0292321117760909,
+          "fraction_detected": 0.0277777777777777
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Plasma",
+          "gene": "SDC1",
+          "mean_log_expression": 0.0,
+          "fraction_detected": 0.0
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "CTSS",
+          "mean_log_expression": 2.6762234647289134,
+          "fraction_detected": 0.9861111111111112
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "FCN1",
+          "mean_log_expression": 2.70606967087723,
+          "fraction_detected": 0.9861111111111112
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Monocyte",
+          "gene": "LYZ",
+          "mean_log_expression": 2.8824372082885823,
+          "fraction_detected": 0.9722222222222224
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "APOE",
+          "mean_log_expression": 0.0207796369392513,
+          "fraction_detected": 0.0208333333333333
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "C1QA",
+          "mean_log_expression": 0.0424356358715503,
+          "fraction_detected": 0.0416666666666666
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Macrophage",
+          "gene": "C1QB",
+          "mean_log_expression": 0.0217025327656505,
+          "fraction_detected": 0.0277777777777777
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "CSF3R",
+          "mean_log_expression": 2.0252857655005787,
+          "fraction_detected": 0.9444444444444446
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "FCGR3B",
+          "mean_log_expression": 1.247992802447283,
+          "fraction_detected": 0.7500000000000001
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "Neutrophil",
+          "gene": "S100A8",
+          "mean_log_expression": 6.632575416064043,
+          "fraction_detected": 1.0000000000000002
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "NK",
+          "gene": "GNLY",
+          "mean_log_expression": 0.0058988673516385,
+          "fraction_detected": 0.0069444444444444
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "NK",
+          "gene": "KLRD1",
+          "mean_log_expression": 0.0199708517329776,
+          "fraction_detected": 0.0208333333333333
+        },
+        {
+          "iteration": 1,
+          "cluster": "r1:immune:2",
+          "level": "l2",
+          "label": "NK",
+          "gene": "NKG7",
+          "mean_log_expression": 0.6893737974778752,
+          "fraction_detected": 0.4444444444444445
+        }
+      ],
+      "coverage": {
+        "l1": {
+          "T cell": [
+            "CD3D",
+            "CD3E",
+            "TRAC"
+          ],
+          "B cell": [
+            "CD79A",
+            "CD79B",
+            "MS4A1"
+          ],
+          "Myeloid": [
+            "LST1",
+            "LYZ",
+            "TYROBP"
+          ],
+          "NK cell": [
+            "GNLY",
+            "KLRD1",
+            "NKG7"
+          ]
+        },
+        "l2": {
+          "CD4 T": [
+            "CCR7",
+            "IL7R",
+            "LTB"
+          ],
+          "CD8 T": [
+            "CCL5",
+            "CD8A",
+            "CD8B"
+          ],
+          "Naive B": [
+            "IGHD",
+            "IL4R"
+          ],
+          "Memory B": [
+            "AIM2",
+            "CD27",
+            "TNFRSF13B"
+          ],
+          "Plasma": [
+            "JCHAIN",
+            "MZB1",
+            "SDC1"
+          ],
+          "Monocyte": [
+            "CTSS",
+            "FCN1",
+            "LYZ"
+          ],
+          "Macrophage": [
+            "APOE",
+            "C1QA",
+            "C1QB"
+          ],
+          "Neutrophil": [
+            "CSF3R",
+            "FCGR3B",
+            "S100A8"
+          ],
+          "NK": [
+            "GNLY",
+            "KLRD1",
+            "NKG7"
+          ]
+        },
+        "excluded": [
+          "IRF7",
+          "BST2"
+        ]
+      },
+      "donor_summary": [
+        {
+          "donor": "TSP11",
+          "n_evaluable": 6,
+          "n_cluster_cells": 6,
+          "n_disagree": 6,
+          "disagreement_fraction": 1.0
+        },
+        {
+          "donor": "TSP14",
+          "n_evaluable": 136,
+          "n_cluster_cells": 136,
+          "n_disagree": 83,
+          "disagreement_fraction": 0.6102941176470589
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "AAACCCAGTATCAGCT_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACCCATCTGTCCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGAAAGTCCTGCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGAAAGTGATGGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGAAGTCGCGGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGCTAGGGTTAGC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGCTAGTGTTGTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGCTCACGGGCTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGCTGTCTTTATC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGCTGTTCCCACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAACGCTTCTGCGATA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGAACGTCTAATCG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGATGAGACAGAGA_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGGCCATAATCGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGGCGTAACCCGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGTAAGCGTCAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGGTATCGGTGTAT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGTAGAGCGATGAC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAAGTGATCAAATGAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAATGGAAGGTCCCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAATGGACAACCAACT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAATGGAGTCACTCAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAATGGATCCCTTTGG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAAAGCACGGTCTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAACCCAGTTTCAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAACCTCGTTCAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAAGAAGCTCCATA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAAGAGTGTAGCAG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACACACCAACGCATT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACACGTCACGCCAGT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACAGGGCACACGGTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCAACAGATTACCC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCAACGTAGAGATT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCAACGTCGATTCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCAACGTTTCGTGA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCACAAGGCCACTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCACACAAATGGTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCACATCCGCGATG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCATGAGCTCATAC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCATGCACGACGTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCATGCACGGTCTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCATGTCCAATGCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCCAACAGCCATTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCCAACATAGGTAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCCAAGTCAAAGCG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCTGACACGGATCC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCTTTCATGTGTCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACCTTTTCGTAGGGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGAAACAGTCGCTG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGGGAAGTACAACA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGGGACAATTCTTC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGGGATCTCTTGCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACGTCAAGTTCGGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACTTCTCATGGATCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACTTCTTCATGGCCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AACTTTCAGAATGTTG_TSP14_BoneMarrow_NA_10X_2_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGAACAAGCTAGATA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGAACAAGTGATGGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGAACACAAAGGCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGAACACAGCAATTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACAAAGCCATTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACAACAGGCGTTC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACAACATTGCCGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACAAGTGACAACG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACTCCAAACGTGG_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACTCGTCAGATTC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACTCGTCTGTGGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGACTCGTGAATATG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGATAGAGAGATCGC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGATAGAGGTAGTAT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCATCCACCAATTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCATCGTTCTATCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGAGCACTGGCGT_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGAGCAGCTGAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGAGGTCGCTGCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGAGTCACTACGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGCGTTGTACTCGCG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGGAATCATGGGAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGGAGCGTCTAAAGA_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGGTAAAGATCCAAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGGTAAGTGATTAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGTACCGTGTTGAGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGTACCTCATGGCCG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGTACCTCTTTCCGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AAGTGAATCCTCGCAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATAGAGCAGCGACAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATAGAGCAGTTGAAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCACGAGTGAATAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCACGCAGGAGGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCACGCATTGCAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCCAGGTAATCACC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCGTGCAACTGCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATCGTGGTAACATCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGAAGCAATACGCT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGAAGTCCTGTTAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGAAGTCTACCTTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGACCAGCTTTCTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGACCAGGACGCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGACCCAAGGGCAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGACCCAATCAAGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGCCAAGCAAGTCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGCCAGTATCACCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGGAAAGCATCTTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGGAAAGCCATTCA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGGAAGTCATCACA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATGGAATCAATCAGC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATTCCTAGCGCAATG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATTCCTGTTCTCCCA_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATTCCTTCGGCTGTG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AATTTCCGTACGGGAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAACCAAGTCTTCCC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAAGCTAGTCTGTAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAAGCTCAGAGCTAG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAAGCTGTGTAGTGG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAAGCTTCTGGAAGG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTAGGAGAATG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTCAATAAGGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTGTCTCGACG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTTCAAGGACG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACAGTTCCTTCTAA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACCAACACTCTCGT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACGCGAGCCTAGGA_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACTGAGTTGCTTGA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACACTGATCTATCGTT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGAAACACTCCCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGAAACAGGAATAT_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGAAATCCGATAAC_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGCCGAGTCATTGC_TSP14_BoneMarrow_NA_10X_2_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "ACAGCCGTCATCTCTA_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "AGCAGCCAGGATGGTC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CACGGGTGTACCCACG_TSP14_BoneMarrow_NA_10X_4_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CAGTCCTAGCAATCTC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCACTACTCTATCCCG_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCATTCGGTGACTCAT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCGTACTTCCGCAAGC_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CCTTACGCAGTCAGCC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "CTCGTACGTAGTACCT_TSP14_BoneMarrow_NA_10X_1_1_5Prime",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "GACGGCTCAAGGGTCA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TACGGGCTCCGTAGGC_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCAGCTCAGGGAGTAA_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TCCATCGTCCGATGCG_TSP14_BoneMarrow_NA_10X_1_1",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        },
+        {
+          "cell_id": "TTTATGCCAGGAACGT_TSP11_BoneMarrow_NA_10X_1_1_LinEnriched",
+          "original_l1": "Myeloid",
+          "proposed_l1": "Myeloid",
+          "proposed_l2": "Unknown"
+        }
+      ],
+      "links": {
+        "Decision table": "hierarchy/decisions.csv",
+        "Marker measurements": "hierarchy/dotplot_data.csv",
+        "Marker coverage": "hierarchy/marker_coverage.json",
+        "Iteration and stopping record": "hierarchy/iterations.json",
+        "Parameters": "hierarchy/config.json",
+        "Cell membership": "hierarchy/round_1_cells.csv",
+        "Configuration": "config.json",
+        "Manifest": "manifest.json",
+        "Execution trace": "trace.jsonl"
+      },
+      "evidence_ids": [
+        "1:r1:immune:2:Myeloid:decision",
+        "1:r1:immune:2:Myeloid:markers",
+        "1:r1:immune:2:Myeloid:membership"
+      ]
+    }
+  ],
+  "sources": {
+    "config.json": "457eb8ca99215bf1470b5ca730760bf3bff4246465296ba623b5d63403f6f47a",
+    "cells.csv": "577bb3fbe87b0dc53b84e4cf3de3e14388a7284183857185c02d8fe9dbdb9374",
+    "provenance.json": "a89e6922a35978539ea398ee938d92b4d6a8ac4428a3f667d0b696b58d95e20a",
+    "hierarchy/atlas_predictions.csv": "71cab6c1d035a44a197bad229b075816a71db5b746dce84f56591b19f1291722",
+    "hierarchy/decisions.csv": "f245a37a9fec9c2af8cf78bd64a53924e50e06a01e73caa52e24fdfaf4004d8b",
+    "hierarchy/dotplot_data.csv": "4807ad1135a04375ebafab998056432e118b80d98a2af389136ce3a3420f010f",
+    "hierarchy/l1_scores.csv": "e469fb47577403946be189e220ba9eb6541f108f2236afaba1b2308396b182dd",
+    "hierarchy/l2_scores.csv": "a9cbf9b65a46eb952849fafd760a462e74e02dfe0172ba42d84b80c334471732",
+    "hierarchy/round_1_cells.csv": "b803de5be1d7ee24a1cbda845abe5efb4dcf811634b3ef29ffe7e7acb570d5f1",
+    "hierarchy/config.json": "acee26d2a55ae9ea3965706d61e1ee669bc0b4573ea0b228a68031e452cbfb7b",
+    "hierarchy/iterations.json": "e0d31ab6cd9f75be5202b7788dbba80d480c02bd2468405f568c2521d3e0c919",
+    "hierarchy/marker_coverage.json": "8efa3f69b7cfbb745025c7ed3fe8aa8e877edb74917a531f03568880fb993f51",
+    "hierarchy/summary.json": "3a8309d515157b50c3f037294c1fce4810495ba8e20f318db809a825174c46d6"
+  },
+  "thresholds": {
+    "initial_l1_key": "initial_l1",
+    "compartments": {
+      "immune": [
+        "T cell",
+        "B cell",
+        "Myeloid",
+        "NK cell"
+      ]
+    },
+    "l1_markers": {
+      "T cell": [
+        "CD3D",
+        "CD3E",
+        "TRAC"
+      ],
+      "B cell": [
+        "CD79A",
+        "CD79B",
+        "MS4A1"
+      ],
+      "Myeloid": [
+        "LYZ",
+        "LST1",
+        "TYROBP"
+      ],
+      "NK cell": [
+        "NKG7",
+        "GNLY",
+        "KLRD1"
+      ]
+    },
+    "l2_markers": {
+      "CD4 T": [
+        "IL7R",
+        "CCR7",
+        "LTB"
+      ],
+      "CD8 T": [
+        "CD8A",
+        "CD8B",
+        "CCL5"
+      ],
+      "Naive B": [
+        "TCL1A",
+        "IGHD",
+        "IL4R"
+      ],
+      "Memory B": [
+        "CD27",
+        "AIM2",
+        "TNFRSF13B"
+      ],
+      "Plasma": [
+        "MZB1",
+        "JCHAIN",
+        "SDC1"
+      ],
+      "Monocyte": [
+        "FCN1",
+        "CTSS",
+        "LYZ"
+      ],
+      "Macrophage": [
+        "C1QA",
+        "C1QB",
+        "APOE"
+      ],
+      "Neutrophil": [
+        "FCGR3B",
+        "CSF3R",
+        "S100A8"
+      ],
+      "NK": [
+        "NKG7",
+        "GNLY",
+        "KLRD1"
+      ]
+    },
+    "l2_parent": {
+      "CD4 T": "T cell",
+      "CD8 T": "T cell",
+      "Naive B": "B cell",
+      "Memory B": "B cell",
+      "Plasma": "B cell",
+      "Monocyte": "Myeloid",
+      "Macrophage": "Myeloid",
+      "Neutrophil": "Myeloid",
+      "NK": "NK cell"
+    },
+    "excluded_genes": [
+      "IRF7",
+      "BST2"
+    ],
+    "batch_key": null,
+    "reference_l1_key": "reference_l1",
+    "reference_l2_key": "reference_l2",
+    "reference_counts_layer": "counts",
+    "min_shared_genes": 30,
+    "max_dense_elements": 120000000,
+    "max_iterations": 3,
+    "movement_tolerance": 0.005,
+    "min_pool_size": 12,
+    "min_cluster_size": 5,
+    "min_markers": 2,
+    "detection_fraction": 0.2,
+    "margin": 0.5,
+    "subtype_margin": 0.5,
+    "atlas_purity": 0.7,
+    "atlas_vote": 0.6,
+    "n_pcs": 15,
+    "n_neighbors": 15,
+    "n_hvg": 2000,
+    "resolution": 0.5,
+    "spatial_level": "l1",
+    "mode": "cell",
+    "reference_sha256": "3dd3b39bb36014f0e404e571cd2a33ee373596c26e6db35cb3c27dcee5ef34e0"
+  }
+}

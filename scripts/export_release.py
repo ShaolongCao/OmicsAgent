@@ -6,13 +6,15 @@ from pathlib import Path
 from release_check import scan_tree
 
 ROOT_FILES = ['README.md','pyproject.toml','uv.lock','.gitignore']
-DOCS = ['HIERARCHY_TUTORIAL.md','methods.md','skills.md','validation-v03.md','RELEASE_NOTES.md']
+DOCS = ['HIERARCHY_TUTORIAL.md','methods.md','skills.md','validation-v03.md','RELEASE_NOTES.md',
+        'SCIENTIST_REVIEW.md', 'validation-review.md']
 
 
 def export(root: Path, destination: Path) -> None:
     if destination.exists():
         raise ValueError('Release destination must not exist')
     selected = [root/name for name in ROOT_FILES] + [root/'docs'/name for name in DOCS]
+    selected += [p for p in (root/'docs'/'cases').rglob('*') if p.is_file()]
     for folder in ['src','tests','examples','scripts','.github']:
         selected += [p for p in (root/folder).rglob('*') if p.is_file()
                      and '__pycache__' not in p.parts and p.suffix != '.pyc']

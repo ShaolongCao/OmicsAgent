@@ -4,6 +4,20 @@ Auditable scRNA-seq and spatial transcriptomics workflows, with optional bounded
 
 **v0.3.0: initial public experimental release.** Numerical analysis works without an API key. The new iterative hierarchical annotation stage refines coarse L1 and subtype L2 labels by rebuilding compartment clusters from raw counts and comparing marker evidence with external reference transfer. Real ISD skin-atlas validation is pending.
 
+## A three-minute scientist review
+
+[Explore three measured cases](docs/cases/README.md): agreement, conflicting evidence, and insufficient evidence from one licensed public Tabula Sapiens bone marrow dataset. The offline interactive report separates coarse identity from subtype uncertainty, shows support and counterevidence, and suggests a next check only when recorded observations trigger it. Accept/undo preserves original labels and exports a run-scoped review history.
+
+[Walkthrough and design rationale](docs/SCIENTIST_REVIEW.md). These selected examples demonstrate decision behavior; published atlas labels are not independent biological ground truth.
+
+```bash
+omicsagent prepare-review --out data/scientist-review
+omicsagent run --config data/scientist-review/run.json
+omicsagent evaluate-review
+```
+
+Preparation downloads a pinned public count dataset; no model API key is required. Open `data/scientist-review/run/report.html`. Each hierarchical run now also generates `review.json` and an offline HTML report alongside the existing Markdown and notebook outputs.
+
 ## Quick start
 
 Python 3.11-3.13 is supported. Use [uv](https://docs.astral.sh/uv/) or install the package with pip.
@@ -79,7 +93,7 @@ Agent mode calls the same fixed-config tools as deterministic runs. It cannot ex
 - Missing markers/controls, tiny pools and conflicting evidence produce unresolved calls.
 - Visium spots are mixed expression domains, not single cells. Domain mode is mandatory for hierarchical Visium runs.
 - Hierarchy uses original raw counts; it does not rerun SPLIT or use fractional corrected counts for scANVI.
-- No real ISD validation, native R SPLIT validation, trajectory inference, SPATA2, MCP server or web UI is included.
+- No real ISD validation, native R SPLIT validation, trajectory inference, SPATA2, MCP server or hosted web application is included.
 
 ## Development
 
