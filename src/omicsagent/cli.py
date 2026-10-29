@@ -17,6 +17,14 @@ def main() -> None:
     demo.add_argument("--out", type=Path, required=True)
     hdemo = sub.add_parser("hierarchy-demo", help="Generate independent synthetic atlas and iterative annotation examples")
     hdemo.add_argument("--out", type=Path, required=True)
+    review = sub.add_parser('review', help='Build an offline scientist review from saved hierarchy artifacts')
+    review.add_argument('--out', type=Path, required=True)
+    review.add_argument('--donor-key', help='Verified donor metadata column; never inferred from sample IDs')
+    prepare = sub.add_parser('prepare-review', help='Prepare the licensed, donor-disjoint real case dataset')
+    prepare.add_argument('--out', type=Path, required=True)
+    prepare.add_argument('--source', type=Path, help='Previously downloaded pinned bone marrow h5ad')
+    prepare.add_argument('--cap', type=int, default=150)
+    sub.add_parser('evaluate-review', help='Evaluate deterministic decision behavior and an all-Unknown control')
     inspect = sub.add_parser("inspect", help="Read-only h5ad schema inspection")
     inspect.add_argument("path", type=Path)
     sub.add_parser(
@@ -34,7 +42,20 @@ def main() -> None:
     args = parser.parse_args()
     result: dict[str, Any]
     try:
-        if args.command == "hierarchy-demo":
+        if args.command == 'prepare-review':
+            from .public_review import fetch_source, prepare_public_review
+
+            source = args.source or fetch_source(args.out.parent/'public-source')
+            result = prepare_public_review(source, args.out, args.cap)
+        elif args.command == 'review':
+            from .review import write_review
+
+            result = write_review(args.out, args.donor_key)
+        elif args.command == 'evaluate-review':
+            from .review import evaluate_behavior
+
+            result = evaluate_behavior()
+        elif args.command == "hierarchy-demo":
             from .demo import make_hierarchy_demo
 
             make_hierarchy_demo(args.out)

@@ -120,7 +120,9 @@ def make_report(
     ]
     if cfg.hierarchy:
         hierarchy = summary["hierarchy"]
-        lines += [f"Hierarchy mode: **{hierarchy['mode']}**; rounds: {hierarchy['iterations']}; "
+        lines += ['[Open the offline scientist review](report.html): separate L1/L2 judgments, '
+                  'support and counterevidence, and reversible draft review.', '',
+                  f"Hierarchy mode: **{hierarchy['mode']}**; rounds: {hierarchy['iterations']}; "
                   f"stop reason: **{hierarchy['stop_reason']}**. See `hierarchy/decisions.csv`, "
                   "`hierarchy/iterations.json` and `hierarchy/dotplot_data.csv`. "
                   "Atlas transfer supports marker decisions; it is not a calibrated confidence measure. "
@@ -203,3 +205,7 @@ def make_report(
         ),
     ]
     nbformat.write(notebook, cfg.out / "analysis.ipynb")
+    if cfg.hierarchy:
+        from .review import write_review
+
+        write_review(cfg.out)
