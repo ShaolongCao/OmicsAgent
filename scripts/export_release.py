@@ -5,7 +5,7 @@ from pathlib import Path
 
 from release_check import scan_tree
 
-ROOT_FILES = ['README.md','pyproject.toml','uv.lock','.gitignore']
+ROOT_FILES = ['README.md','pyproject.toml','uv.lock','.gitignore','.gitattributes']
 DOCS = ['HIERARCHY_TUTORIAL.md','methods.md','skills.md','validation-v03.md','RELEASE_NOTES.md',
         'SCIENTIST_REVIEW.md', 'validation-review.md']
 

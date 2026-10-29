@@ -24,7 +24,7 @@ Conflict paired-winner disagreement: TSP11 6/6 evaluable cells; TSP14 231/232. T
 
 - Full pytest: **73 passed, 2 skipped**. Optional TACCO absent; Windows symlink creation lacks privilege. Environment-file rejection is still asserted; the symlink branch executes on platforms with permission.
 - Ruff: passed. Mypy: passed for 20 source files.
-- Public source export and release scanner: passed (74 selected files); UTF-8 decoding is explicit across Windows locales.
+- Public source export and release scanner: passed (75 selected files); UTF-8 decoding is explicit across Windows locales. Git attributes preserve evidence bytes and hashes across checkout platforms.
 - Five explicit policy controls passed, including agreement resolution, coarse conflict deferral, atlas-only rejection, supported reassignment and weak-marker deferral. The all-Unknown control fails; its resolved coverage is zero. This is policy evaluation, not biological accuracy.
 - Regression tests cover L1/L2 separation, original-label summaries after earlier reassignment, final skipped rounds avoiding stale judgments, donor paired-measurement denominators and ties, source-scoped portable bundles, old schemas, empty tables and HTML escaping.
 - Node engine and Edge browser checks cover case switching, evidence expansion, marker plot rendering, accept/undo, JSON/CSV downloads, valid history import, atomic rejection of malformed/cross-run histories, original-first exports, script/CSV injection handling and mobile layout.
