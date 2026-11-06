@@ -11,6 +11,7 @@ from scipy import sparse
 
 from .analysis import counts, reference_transfer
 from .config import RunConfig
+from .rubric import VERSION, assess_decision, control_loop
 from .trace import sha256, write_json
 
 
@@ -258,7 +259,10 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
     cluster_ids = np.full(obj.n_obs, "unprocessed", dtype=object)
     pool_for = {label: pool for pool, labels in cfg.compartments.items() for label in labels}
     seen = {tuple(current)}
-    history, all_decisions, dot_rows = [], [], []
+    history: list[dict[str, Any]] = []
+    all_decisions: list[dict[str, Any]] = []
+    dot_rows: list[dict[str, Any]] = []
+    rubric_rounds = []
     reason = "max_iterations"
     for iteration in range(1, cfg.max_iterations+1):
         pools = np.array([pool_for.get(x, "__unresolved__") for x in current])
@@ -365,19 +369,42 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
         signature = tuple(new)
         reason_now = stopping_reason(moves, cfg.movement_tolerance, signature in seen,
                                      iteration, cfg.max_iterations)
+        assessments = [assess_decision(row, parameters) for row in round_rows]
+        control = control_loop(assessments, moved_cells=int(moved.sum()),
+                               repeated=signature in seen, iteration=iteration,
+                               limit=cfg.max_iterations,
+                               skipped_cells=sum(p['size'] for p in pool_rows if p.get('reason')),
+                               numerical_stop=reason_now)
+        rubric_rounds.append({'iteration': iteration, 'control': control, 'decisions': assessments,
+                              'evidence': {'decisions': 'decisions.csv',
+                                           'membership': f'round_{iteration}_cells.csv',
+                                           'parameters': 'config.json', 'markers': 'dotplot_data.csv'}})
+        write_json(out / 'rubric.json', {'version': VERSION, 'mode': 'runtime', 'rounds': rubric_rounds})
+        if control['reason'] == 'invalid_assignment':
+            # Save rejected proposals as diagnostic evidence, never as final labels.
+            pd.DataFrame(all_decisions + round_rows).to_csv(out / 'decisions.csv', index=False)
+            pd.DataFrame(dot_rows).to_csv(out / 'dotplot_data.csv', index=False)
+            pd.DataFrame({'cell_id': obj.obs_names, 'pool': pools, 'cluster': cluster_ids,
+                          'before_l1': current, 'after_l1': new, 'l2': l2,
+                          'decision': status}).to_csv(out / f'round_{iteration}_cells.csv', index=False)
+            write_json(out / 'iterations.json', history + [{
+                'iteration': iteration, 'pools': pool_rows, 'stop_reason': 'invalid_assignment',
+                'rubric_action': control['action'], 'rubric_reason': control['reason']}])
+            raise ValueError('Rubric blocked an unsupported assignment; inspect hierarchy/rubric.json')
         movement_by_pool = {pool: float(moved[pools == pool].mean()) for pool in set(pools)}
         history.append({"iteration": iteration, "moved_cells": int(moved.sum()),
                         "max_cluster_fraction": max(moves, default=0),
                         "total_fraction_by_pool": movement_by_pool,
-                        "pools": pool_rows, "stop_reason": reason_now})
+                        "pools": pool_rows, "stop_reason": reason_now,
+                        "rubric_action": control['action'], "rubric_reason": control['reason']})
         pd.DataFrame({"cell_id": obj.obs_names, "pool": pools, "cluster": cluster_ids,
                       "before_l1": current, "after_l1": new, "l2": l2,
                       "decision": status}).to_csv(out / f"round_{iteration}_cells.csv", index=False)
         all_decisions.extend(round_rows)
         current = new
         seen.add(signature)
-        if reason_now:
-            reason = reason_now
+        if control['action'] != 'continue':
+            reason = reason_now or control['reason']
             break
     obj.obs["oa_l1"] = current
     obj.obs["oa_l2"] = l2
@@ -396,7 +423,9 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
     pd.DataFrame(dot_rows, columns=dot_columns).to_csv(out / "dotplot_data.csv", index=False)
     write_json(out / "iterations.json", history)
     summary = {"iterations": len(history), "stop_reason": reason,
-               "converged": reason in {"exact_stability", "tolerance"} and bool(np.any(status == "Keep")), "mode": cfg.mode,
+               "converged": control['action'] == 'accept', "mode": cfg.mode,
+               "rubric_action": control['action'], "rubric_reason": control['reason'],
+               "numerically_stable": reason in {"exact_stability", "tolerance"},
                "status_counts": pd.Series(status).value_counts().to_dict(),
                "reference_sha256": sha256(cfg.reference) if cfg.reference else None,
                "reference_backend": "reference_fitted_pca_knn" if cfg.reference else "none",

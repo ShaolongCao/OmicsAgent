@@ -1,0 +1,142 @@
+{
+  "scope": "Real-data runtime smoke test, not biological validation",
+  "summary": {
+    "iterations": 3,
+    "stop_reason": "max_iterations",
+    "converged": false,
+    "mode": "cell",
+    "rubric_action": "stop_unresolved",
+    "rubric_reason": "budget_exhausted",
+    "numerically_stable": false,
+    "status_counts": {
+      "Keep": 2053,
+      "Ambiguous": 88,
+      "Reassign": 20
+    },
+    "reference_sha256": "3dd3b39bb36014f0e404e571cd2a33ee373596c26e6db35cb3c27dcee5ef34e0",
+    "reference_backend": "reference_fitted_pca_knn",
+    "real_atlas_validated": false,
+    "spatial_level": "l1"
+  },
+  "rounds": [
+    {
+      "version": "1.0",
+      "action": "continue",
+      "reason": "validate_changed_assignments",
+      "iteration": 1,
+      "budget_remaining": 2,
+      "moved_cells": 18,
+      "skipped_cells": 0,
+      "numerical_stop_reason": "tolerance",
+      "progress": {
+        "score": 1,
+        "meaning": "Changed assignments require validation; movement is not new biological evidence."
+      },
+      "accepted_cells": 916,
+      "unresolved_cells": 1245
+    },
+    {
+      "version": "1.0",
+      "action": "continue",
+      "reason": "validate_changed_assignments",
+      "iteration": 2,
+      "budget_remaining": 1,
+      "moved_cells": 15,
+      "skipped_cells": 0,
+      "numerical_stop_reason": null,
+      "progress": {
+        "score": 1,
+        "meaning": "Changed assignments require validation; movement is not new biological evidence."
+      },
+      "accepted_cells": 923,
+      "unresolved_cells": 1238
+    },
+    {
+      "version": "1.0",
+      "action": "stop_unresolved",
+      "reason": "budget_exhausted",
+      "iteration": 3,
+      "budget_remaining": 0,
+      "moved_cells": 20,
+      "skipped_cells": 0,
+      "numerical_stop_reason": "max_iterations",
+      "progress": {
+        "score": 1,
+        "meaning": "Changed assignments require validation; movement is not new biological evidence."
+      },
+      "accepted_cells": 1047,
+      "unresolved_cells": 1114
+    }
+  ],
+  "rubric_sha256": "9d6536cd2fb07a811ec45ebd534cdc0c25300758b0bdf1c1b5a691fbca7b668a",
+  "behavior_controls": {
+    "version": "1.0",
+    "scope": "Synthetic policy controls, not biological accuracy",
+    "passed": true,
+    "n_cases": 6,
+    "resolved_coverage": 1.0,
+    "inappropriate_assignment": 0.0,
+    "correct": 6,
+    "loop_controls": [
+      {
+        "id": "small_move",
+        "expected": "continue",
+        "observed": "continue"
+      },
+      {
+        "id": "cycle",
+        "expected": "stop_unresolved",
+        "observed": "stop_unresolved"
+      },
+      {
+        "id": "budget",
+        "expected": "stop_unresolved",
+        "observed": "stop_unresolved"
+      },
+      {
+        "id": "stable_supported",
+        "expected": "accept",
+        "observed": "accept"
+      }
+    ],
+    "controls": [
+      {
+        "id": "supported_parent",
+        "expected": "accept",
+        "observed": "accept"
+      },
+      {
+        "id": "coarse_conflict",
+        "expected": "review",
+        "observed": "review"
+      },
+      {
+        "id": "no_evidence",
+        "expected": "stop_unresolved",
+        "observed": "stop_unresolved"
+      },
+      {
+        "id": "blind_reference",
+        "expected": "stop_unresolved",
+        "observed": "stop_unresolved"
+      },
+      {
+        "id": "unverified_subtype",
+        "expected": "stop_unresolved",
+        "observed": "stop_unresolved"
+      },
+      {
+        "id": "repool_required",
+        "expected": "continue",
+        "observed": "continue"
+      }
+    ],
+    "all_unknown_control": {
+      "passed": false,
+      "n_cases": 6,
+      "resolved_coverage": 0.0,
+      "inappropriate_assignment": 0.0,
+      "correct": 3
+    }
+  }
+}

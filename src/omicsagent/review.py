@@ -6,6 +6,7 @@ from typing import Any, cast
 
 import pandas as pd
 
+from .rubric import VERSION, assess_decision
 from .trace import sha256, write_json
 
 KINDS = ('agreement', 'conflict', 'insufficient')
@@ -249,6 +250,7 @@ def build_review(out: Path, donor_key: str | None = None) -> dict[str, Any]:
         scope_note = (f' Evidence is aggregated over {evidence_n} cluster cells; this review affects '
                       f'{len(members)} cells with the recorded source label.' if evidence_n != len(members) else '')
         links = {'Decision table': 'hierarchy/decisions.csv',
+                 'Runtime rubric': 'hierarchy/rubric.json',
                  'Marker measurements': 'hierarchy/dotplot_data.csv',
                  'Marker coverage': 'hierarchy/marker_coverage.json',
                  'Iteration and stopping record': 'hierarchy/iterations.json',
@@ -257,6 +259,7 @@ def build_review(out: Path, donor_key: str | None = None) -> dict[str, Any]:
                  'Configuration': 'config.json', 'Manifest': 'manifest.json',
                  'Execution trace': 'trace.jsonl'}
         cases.append({'id': cid, 'kind': kind, 'iteration': iteration,
+                      'rubric': assess_decision(row, thresholds),
                       'cluster': str(row['cluster']), 'n_cells': len(members),
                       'evidence_n_cells': evidence_n,
                       'l1': l1, 'l2': l2, 'l1_supported': l1_supported,
@@ -279,7 +282,10 @@ def build_review(out: Path, donor_key: str | None = None) -> dict[str, Any]:
                             'excluded_resolved_without_dual_support': excluded_resolved,
                             'final_iteration': final_iteration, 'skipped_pools': skipped_pools,
                             'missing': missing, 'complete': not missing},
-              'cases': cases, 'sources': sources, 'thresholds': thresholds}
+              'cases': cases, 'sources': sources, 'thresholds': thresholds,
+              'rubric': _read(hierarchy/'rubric.json') or {
+                  'version': VERSION, 'mode': 'retrospective', 'rounds': [],
+                  'note': 'Case scores computed from saved evidence; this historical run was not controlled by the rubric.'}}
     return cast(dict[str, Any], json.loads(json.dumps(result, default=str), parse_constant=lambda _: None))
 
 

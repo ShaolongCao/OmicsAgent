@@ -1,5 +1,7 @@
 # OmicsAgent
 
+**Evidence rubric and loop control:** Each hierarchy round records why it accepts a supported granularity, validates changed assignments, requests scientific review, or stops unresolved. Scores come from structured evidence, not LLM self-evaluation. See the [rubric, scoring anchors and limitations](docs/ANNOTATION_RUBRIC.md). Run `omicsagent evaluate-rubric` for decision and loop behavior controls, including a failing all-Unknown baseline.
+
 Auditable scRNA-seq and spatial transcriptomics workflows, with optional bounded Claude tool use.
 
 **v0.3.0: initial public experimental release.** Numerical analysis works without an API key. The new iterative hierarchical annotation stage refines coarse L1 and subtype L2 labels by rebuilding compartment clusters from raw counts and comparing marker evidence with external reference transfer. Real ISD skin-atlas validation is pending.

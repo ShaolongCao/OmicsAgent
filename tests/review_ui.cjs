@@ -9,6 +9,8 @@ const fixture = {schema_version:1,run_hash:'run-a',provenance:{},selection:{elig
   original_l1:'old',proposed_l1:'T',support:['support'],counterevidence:['opposition'],unresolved:'subtype',next_check:null,decision:{},markers:[],donor_summary:[],links:{},evidence_ids:['decisions:1:b'],cells:[{cell_id:'=danger',original_l1:'old',proposed_l1:'T',proposed_l2:'Unknown'}]
 }]};
 fixture.provenance.test = '</script><img src=x onerror=alert(1)>& __ENGINE__';
+fixture.rubric={version:'1.0',mode:'retrospective',rounds:[],note:'Historical run; retrospective assessment.'};
+fixture.cases[0].rubric={action:'review',reason:'marker_reference_conflict',accepted_level:'L1',hard_failures:[],next_check:null,dimensions:{applicability:{score:null,evidence:'Not measured'}}};
 fixture.cases[0].markers = [{level:'l1',label:'T',gene:'CD3D',mean_log_expression:2,fraction_detected:.8}];
 fixture.cases[0].links = {decision:'hierarchy/decisions.csv',unsafe:'javascript:alert(1)',encoded:'%6aavascript%3aalert(1)'};
 fixture.cases.push({...fixture.cases[0],id:'case-a',kind:'agreement',l2:'CD4',cells:[]});
@@ -72,6 +74,8 @@ if (process.env.REVIEW_BROWSER === '1') {
       const errors=[];page.on('pageerror',error=>errors.push(error.message));
       await page.goto(pathToFileURL(filename).href);
       assert.equal(await page.locator('#select-case-b').getAttribute('aria-pressed'),'true');
+      assert.match(await page.locator('#loop-rubric').textContent(),/retrospective/);
+      assert.match(await page.locator('#evidence-rubric').textContent(),/unassessed/);
       await page.locator('#select-case-c').click();
       assert.match(await page.locator('#case-panel').textContent(),/Unresolved; retaining a label does not validate it/);
       await page.locator('#select-case-b').click();

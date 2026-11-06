@@ -25,6 +25,7 @@ def main() -> None:
     prepare.add_argument('--source', type=Path, help='Previously downloaded pinned bone marrow h5ad')
     prepare.add_argument('--cap', type=int, default=150)
     sub.add_parser('evaluate-review', help='Evaluate deterministic decision behavior and an all-Unknown control')
+    sub.add_parser('evaluate-rubric', help='Evaluate evidence rubric policy controls; not biological accuracy')
     inspect = sub.add_parser("inspect", help="Read-only h5ad schema inspection")
     inspect.add_argument("path", type=Path)
     sub.add_parser(
@@ -55,6 +56,10 @@ def main() -> None:
             from .review import evaluate_behavior
 
             result = evaluate_behavior()
+        elif args.command == 'evaluate-rubric':
+            from .rubric import evaluate_rubric
+
+            result = evaluate_rubric()
         elif args.command == "hierarchy-demo":
             from .demo import make_hierarchy_demo
 

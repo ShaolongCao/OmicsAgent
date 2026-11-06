@@ -46,6 +46,9 @@ def test_measured_cases_distinguish_coarse_support_and_subtype_conflict(tmp_path
     assert by_kind['conflict']['counterevidence']
     assert by_kind['conflict']['next_check']['kind'] != 'donor'
     assert report['selection']['eligible']['conflict'] == 1
+    assert report['rubric']['mode'] == 'retrospective'
+    assert by_kind['conflict']['rubric']['action'] == 'review'
+    assert by_kind['conflict']['rubric']['accepted_level'] == 'L1'
 
 
 def test_report_requires_real_measurements_for_donor_suggestion(tmp_path):

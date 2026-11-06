@@ -47,6 +47,51 @@
       "id": "1:r1:immune:18:B cell",
       "kind": "agreement",
       "iteration": 1,
+      "rubric": {
+        "version": "1.0",
+        "cluster": "r1:immune:18",
+        "source_l1": "B cell",
+        "n_cells": 121,
+        "accepted_level": "L2",
+        "action": "accept",
+        "reason": "supported_at_reported_granularity",
+        "dimensions": {
+          "applicability": {
+            "score": null,
+            "evidence": "Tissue/technology compatibility and out-of-reference assessment are not measured by this decision row."
+          },
+          "support": {
+            "score": 2,
+            "evidence": "Marker winner=B cell; strong=True; proposed parent=B cell."
+          },
+          "counterevidence": {
+            "score": 1,
+            "evidence": "L1 conflict=False; L2 conflict=False. Other confounders are not ruled out."
+          },
+          "granularity": {
+            "score": 2,
+            "evidence": "Accepted evidence level=L2; proposed subtype=Plasma."
+          },
+          "selective_resolution": {
+            "score": null,
+            "evidence": "Measured across controls or independently adjudicated cases, not inferred from one row."
+          },
+          "next_check": {
+            "score": null,
+            "evidence": "No additional check required by measured gates."
+          },
+          "progress": {
+            "score": null,
+            "evidence": "Requires round transitions; see loop control record."
+          },
+          "audit": {
+            "score": 1,
+            "evidence": "Decision fields recorded; artifact integrity and reversibility are separate checks."
+          }
+        },
+        "hard_failures": [],
+        "next_check": null
+      },
       "cluster": "r1:immune:18",
       "n_cells": 121,
       "evidence_n_cells": 121,
@@ -1272,6 +1317,57 @@
       "id": "1:r1:immune:5:Myeloid",
       "kind": "conflict",
       "iteration": 1,
+      "rubric": {
+        "version": "1.0",
+        "cluster": "r1:immune:5",
+        "source_l1": "Myeloid",
+        "n_cells": 238,
+        "accepted_level": "L1",
+        "action": "review",
+        "reason": "marker_reference_conflict",
+        "dimensions": {
+          "applicability": {
+            "score": null,
+            "evidence": "Tissue/technology compatibility and out-of-reference assessment are not measured by this decision row."
+          },
+          "support": {
+            "score": 2,
+            "evidence": "Marker winner=Myeloid; strong=True; proposed parent=Myeloid."
+          },
+          "counterevidence": {
+            "score": 2,
+            "evidence": "L1 conflict=False; L2 conflict=True. Other confounders are not ruled out."
+          },
+          "granularity": {
+            "score": 2,
+            "evidence": "Accepted evidence level=L1; proposed subtype=None."
+          },
+          "selective_resolution": {
+            "score": null,
+            "evidence": "Measured across controls or independently adjudicated cases, not inferred from one row."
+          },
+          "next_check": {
+            "score": 2,
+            "evidence": "marker_reference_conflict"
+          },
+          "progress": {
+            "score": null,
+            "evidence": "Requires round transitions; see loop control record."
+          },
+          "audit": {
+            "score": 1,
+            "evidence": "Decision fields recorded; artifact integrity and reversibility are separate checks."
+          }
+        },
+        "hard_failures": [],
+        "next_check": {
+          "kind": "competing_markers",
+          "executor": "scientist",
+          "trigger": "marker_reference_conflict",
+          "question": "Do competing markers support a mixed population or a reference mismatch?",
+          "decision_effect": "Resolve the contradiction before assigning the disputed level; otherwise retain deferral."
+        }
+      },
       "cluster": "r1:immune:5",
       "n_cells": 238,
       "evidence_n_cells": 238,
@@ -3203,6 +3299,57 @@
       "id": "1:r1:immune:2:Myeloid",
       "kind": "insufficient",
       "iteration": 1,
+      "rubric": {
+        "version": "1.0",
+        "cluster": "r1:immune:2",
+        "source_l1": "Myeloid",
+        "n_cells": 142,
+        "accepted_level": "L1",
+        "action": "stop_unresolved",
+        "reason": "insufficient_evidence",
+        "dimensions": {
+          "applicability": {
+            "score": null,
+            "evidence": "Tissue/technology compatibility and out-of-reference assessment are not measured by this decision row."
+          },
+          "support": {
+            "score": 2,
+            "evidence": "Marker winner=Myeloid; strong=True; proposed parent=Myeloid."
+          },
+          "counterevidence": {
+            "score": 1,
+            "evidence": "L1 conflict=False; L2 conflict=False. Other confounders are not ruled out."
+          },
+          "granularity": {
+            "score": 2,
+            "evidence": "Accepted evidence level=L1; proposed subtype=None."
+          },
+          "selective_resolution": {
+            "score": null,
+            "evidence": "Measured across controls or independently adjudicated cases, not inferred from one row."
+          },
+          "next_check": {
+            "score": 2,
+            "evidence": "insufficient_evidence"
+          },
+          "progress": {
+            "score": null,
+            "evidence": "Requires round transitions; see loop control record."
+          },
+          "audit": {
+            "score": 1,
+            "evidence": "Decision fields recorded; artifact integrity and reversibility are separate checks."
+          }
+        },
+        "hard_failures": [],
+        "next_check": {
+          "kind": "marker_coverage_and_separation",
+          "executor": "scientist",
+          "trigger": "insufficient_evidence",
+          "question": "Are markers missing, poorly detected, or insufficiently separated?",
+          "decision_effect": "Obtain discriminating evidence before assigning a finer identity; do not rerun unchanged inputs."
+        }
+      },
       "cluster": "r1:immune:2",
       "n_cells": 142,
       "evidence_n_cells": 144,
@@ -4686,5 +4833,11 @@
     "spatial_level": "l1",
     "mode": "cell",
     "reference_sha256": "3dd3b39bb36014f0e404e571cd2a33ee373596c26e6db35cb3c27dcee5ef34e0"
+  },
+  "rubric": {
+    "version": "1.0",
+    "mode": "retrospective",
+    "rounds": [],
+    "note": "Case scores computed from saved evidence; this historical run was not controlled by the rubric."
   }
 }
