@@ -2,6 +2,7 @@ import json
 
 import anndata as ad
 import numpy as np
+import pandas as pd
 import pytest
 
 from omicsagent.config import load_config
@@ -26,6 +27,13 @@ def test_full_hierarchy_preserves_counts_and_corrects_misplaced_cells(hierarchy_
     assert wrong.sum() > 0
     assert (result.obs.loc[wrong, 'oa_l1'] == original.obs.loc[wrong, 'truth_l1']).all()
     assert (cfg.out / 'hierarchy' / 'decisions.csv').exists()
+    assert (cfg.out / 'report.html').exists()
+    assert (cfg.out / 'review.json').exists()
+    rubric = json.loads((cfg.out / 'hierarchy' / 'rubric.json').read_text())
+    assert rubric['mode'] == 'runtime'
+    assert rubric['rounds'][0]['control']['action'] == 'continue'
+    assert rubric['rounds'][-1]['control']['action'] in {'accept', 'review', 'stop_unresolved'}
+    assert rubric['rounds'][0]['decisions'][0]['dimensions']['applicability']['score'] is None
     summary = json.loads((cfg.out / 'summary.json').read_text())['hierarchy']
     assert summary['stop_reason'] == 'exact_stability'
     assert summary['iterations'] >= 2
@@ -63,6 +71,37 @@ def test_one_round_invalidates_moved_subtype(hierarchy_demo):
     assert moved.any()
     assert (result.obs.loc[moved, 'oa_l2'] == 'Unknown').all()
     assert json.loads((cfg.out / 'summary.json').read_text())['hierarchy']['stop_reason'] == 'max_iterations'
+    assert json.loads((cfg.out / 'hierarchy' / 'rubric.json').read_text())['rounds'][-1]['control']['action'] == 'stop_unresolved'
+
+
+def test_rubric_overrides_tolerance_for_changed_labels(hierarchy_demo):
+    hp = hierarchy_demo / 'hierarchy.json'
+    config = json.loads(hp.read_text())
+    config['movement_tolerance'] = 1.
+    hp.write_text(json.dumps(config))
+    cfg = load_config(hierarchy_demo / 'scrna.json')
+    run_pipeline(cfg)
+    rubric = json.loads((cfg.out / 'hierarchy' / 'rubric.json').read_text())
+    assert rubric['rounds'][0]['control']['numerical_stop_reason'] == 'tolerance'
+    assert rubric['rounds'][0]['control']['action'] == 'continue'
+    assert len(rubric['rounds']) >= 2
+
+
+def test_rubric_rejection_preserves_evidence_without_final_labels(hierarchy_demo, monkeypatch):
+    from omicsagent.rubric import assess_decision
+    def reject(row, thresholds):
+        result = assess_decision(row, thresholds)
+        result['hard_failures'] = ['forced_invalid_assignment']
+        return result
+    monkeypatch.setattr('omicsagent.hierarchy.assess_decision', reject)
+    cfg = load_config(hierarchy_demo / 'scrna.json')
+    with pytest.raises(RuntimeError, match='Rubric blocked'):
+        run_pipeline(cfg)
+    folder = cfg.out / 'hierarchy'
+    assert not (cfg.out / 'result.h5ad').exists()
+    for name in ['decisions.csv', 'dotplot_data.csv', 'round_1_cells.csv', 'iterations.json']:
+        assert (folder / name).is_file()
+    assert not pd.read_csv(folder / 'decisions.csv').empty
 
 
 def test_replay_does_not_refit_hierarchy(hierarchy_demo, monkeypatch):
@@ -86,6 +125,13 @@ def test_conflicting_atlas_subtype_does_not_validate_l2(hierarchy_demo):
     result = ad.read_h5ad(cfg.out/'result.h5ad')
     myeloid = result.obs.truth_l1 == 'Myeloid'
     assert (result.obs.loc[myeloid,'oa_l2'] == 'Unknown').all()
+    decisions = pd.read_csv(cfg.out/'hierarchy'/'decisions.csv')
+    kept = decisions[(decisions.source_l1 == 'Myeloid') & (decisions.decision == 'Keep')]
+    assert not kept.empty
+    assert (kept.l1_reason == 'marker_supported_current').all()
+    assert (kept.l2_reason == 'marker_reference_conflict').all()
+    assert (kept.l2_marker_strong).all()
+    assert (kept.selected_l2 == 'Unknown').all()
 
 
 def test_bounded_agent_calls_hierarchy_and_generates_report(hierarchy_demo):

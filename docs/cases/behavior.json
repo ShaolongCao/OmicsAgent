@@ -1,0 +1,42 @@
+{
+  "scope": "Deterministic mechanism controls; not biological accuracy",
+  "passed": true,
+  "n_cases": 5,
+  "resolved_coverage": 1.0,
+  "inappropriate_assignment": 0.0,
+  "correct": 5,
+  "controls": [
+    {
+      "id": "supported_agreement",
+      "expected": "resolved",
+      "observed": "resolved"
+    },
+    {
+      "id": "coarse_conflict",
+      "expected": "deferred",
+      "observed": "deferred"
+    },
+    {
+      "id": "atlas_only",
+      "expected": "unknown",
+      "observed": "unknown"
+    },
+    {
+      "id": "supported_reassignment",
+      "expected": "reassigned",
+      "observed": "reassigned"
+    },
+    {
+      "id": "weak_markers",
+      "expected": "deferred",
+      "observed": "deferred"
+    }
+  ],
+  "all_unknown_control": {
+    "passed": false,
+    "n_cases": 5,
+    "resolved_coverage": 0.0,
+    "inappropriate_assignment": 0.0,
+    "correct": 1
+  }
+}

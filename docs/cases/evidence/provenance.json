@@ -1,0 +1,28 @@
+{
+  "dataset": "Tabula Sapiens v1 bone marrow, Figshare release v5",
+  "source_url": "https://figshare.com/articles/dataset/Tabula_Sapiens_release_1_0/14267219/5",
+  "doi": "10.6084/m9.figshare.14267219.v5",
+  "download_url": "https://ndownloader.figshare.com/files/34701967",
+  "archive_md5": "1b665025142b0c74f7b63d7310b379d4",
+  "source_h5ad_sha256": "4e08b45d5668c7cc741ccddafd2626f65303ce764be4f3ebc1b7778d60c30c64",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "citation": "The Tabula Sapiens Consortium, Science 376, eabl4896 (2022). doi:10.1126/science.abl4896",
+  "data_kind": "real",
+  "donor_key": "donor",
+  "reference_donors": [
+    "TSP2"
+  ],
+  "query_donors": [
+    "TSP11",
+    "TSP14"
+  ],
+  "sampling": "10X only; stable cell-ID order; cap 150 per donor/published fine label",
+  "excluded": "Unmapped published classes excluded; no artificial label corruption",
+  "reference_cells": 1198,
+  "query_cells": 2286,
+  "n_genes": 25064,
+  "limits": "Published labels are reference metadata, not independent ground truth. Panels and thresholds are illustrative; no biological accuracy claim. One NK module cannot establish a subtype margin.",
+  "source_run_hash": "0941406afea6ff3b3b4c1ab26730879b1a5f7dad20108d95b6afbe5be1d9adb6",
+  "bundle_note": "Numerical CSVs are unchanged. Absolute path fields in JSON/JSONL are replaced by basenames; original hashes are retained in manifest. Count matrices are retrieved separately with prepare-review."
+}

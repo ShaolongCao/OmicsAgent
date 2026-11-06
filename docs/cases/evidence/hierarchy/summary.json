@@ -1,0 +1,15 @@
+{
+  "iterations": 1,
+  "stop_reason": "tolerance",
+  "converged": true,
+  "mode": "cell",
+  "status_counts": {
+    "Keep": 1873,
+    "Ambiguous": 270,
+    "Reassign": 18
+  },
+  "reference_sha256": "3dd3b39bb36014f0e404e571cd2a33ee373596c26e6db35cb3c27dcee5ef34e0",
+  "reference_backend": "reference_fitted_pca_knn",
+  "real_atlas_validated": false,
+  "spatial_level": "l1"
+}

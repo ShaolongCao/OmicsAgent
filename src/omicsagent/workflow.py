@@ -65,6 +65,9 @@ class Workflow:
         self.require("new")
         self.adata = ad.read_h5ad(self.cfg.input)
         self.summary["input"] = validate(self.adata, self.cfg)
+        if 'oa_review_provenance_json' in self.adata.uns:
+            write_json(self.cfg.out / 'provenance.json',
+                       json.loads(self.adata.uns['oa_review_provenance_json']))
         self.stage = "loaded"
         return cast(dict[str, Any], self.summary["input"])
 
@@ -75,7 +78,7 @@ class Workflow:
             self.warnings.append(
                 "No mitochondrial-prefix genes found; mt QC is uninformative. Check gene identifiers/panel."
             )
-        self.adata.write_h5ad(self.cfg.out / "checkpoint.h5ad")
+        self.adata.write_h5ad(self.cfg.out / "checkpoint.h5ad", compression='gzip')
         self.stage = "processed"
         return cast(dict[str, Any], self.summary["qc"])
 
@@ -229,7 +232,7 @@ class Workflow:
 
     def generate_report(self) -> dict[str, Any]:
         self.require("spatial" if self.cfg.modality == "spatial" else ("hierarchy" if self.cfg.hierarchy else "annotated"))
-        self.adata.write_h5ad(self.cfg.out / "result.h5ad")
+        self.adata.write_h5ad(self.cfg.out / "result.h5ad", compression='gzip')
         self.adata.obs.to_csv(self.cfg.out / "cells.csv", index_label="cell_id")
         write_json(self.cfg.out / "annotations.json", self.annotations)
         write_json(self.cfg.out / "evidence_records.json", self.evidence.records)

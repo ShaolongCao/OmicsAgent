@@ -1,0 +1,74 @@
+{
+  "l1": {
+    "T cell": [
+      "CD3D",
+      "CD3E",
+      "TRAC"
+    ],
+    "B cell": [
+      "CD79A",
+      "CD79B",
+      "MS4A1"
+    ],
+    "Myeloid": [
+      "LST1",
+      "LYZ",
+      "TYROBP"
+    ],
+    "NK cell": [
+      "GNLY",
+      "KLRD1",
+      "NKG7"
+    ]
+  },
+  "l2": {
+    "CD4 T": [
+      "CCR7",
+      "IL7R",
+      "LTB"
+    ],
+    "CD8 T": [
+      "CCL5",
+      "CD8A",
+      "CD8B"
+    ],
+    "Naive B": [
+      "IGHD",
+      "IL4R"
+    ],
+    "Memory B": [
+      "AIM2",
+      "CD27",
+      "TNFRSF13B"
+    ],
+    "Plasma": [
+      "JCHAIN",
+      "MZB1",
+      "SDC1"
+    ],
+    "Monocyte": [
+      "CTSS",
+      "FCN1",
+      "LYZ"
+    ],
+    "Macrophage": [
+      "APOE",
+      "C1QA",
+      "C1QB"
+    ],
+    "Neutrophil": [
+      "CSF3R",
+      "FCGR3B",
+      "S100A8"
+    ],
+    "NK": [
+      "GNLY",
+      "KLRD1",
+      "NKG7"
+    ]
+  },
+  "excluded": [
+    "IRF7",
+    "BST2"
+  ]
+}

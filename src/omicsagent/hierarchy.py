@@ -11,6 +11,7 @@ from scipy import sparse
 
 from .analysis import counts, reference_transfer
 from .config import RunConfig
+from .rubric import VERSION, assess_decision, control_loop
 from .trace import sha256, write_json
 
 
@@ -230,6 +231,9 @@ def _best(scores: pd.DataFrame, indices: np.ndarray, coverage: dict[str, list[st
 def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
                   seed: int, platform: str) -> dict[str, Any]:
     out.mkdir(parents=True, exist_ok=True)
+    parameters = cfg.model_dump(mode='json', exclude={'reference'})
+    parameters['reference_sha256'] = sha256(cfg.reference) if cfg.reference else None
+    write_json(out / 'config.json', parameters)
     if platform == "visium" and cfg.mode != "domain":
         raise ValueError("Visium hierarchy requires domain mode; spots are not cells")
     if cfg.initial_l1_key not in obj.obs or obj.obs[cfg.initial_l1_key].isna().any():
@@ -255,7 +259,10 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
     cluster_ids = np.full(obj.n_obs, "unprocessed", dtype=object)
     pool_for = {label: pool for pool, labels in cfg.compartments.items() for label in labels}
     seen = {tuple(current)}
-    history, all_decisions, dot_rows = [], [], []
+    history: list[dict[str, Any]] = []
+    all_decisions: list[dict[str, Any]] = []
+    dot_rows: list[dict[str, Any]] = []
+    rubric_rounds = []
     reason = "max_iterations"
     for iteration in range(1, cfg.max_iterations+1):
         pools = np.array([pool_for.get(x, "__unresolved__") for x in current])
@@ -312,13 +319,28 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
                     status[subset] = decision
                     changed += int(np.sum(current[subset] != target))
                     subtype = None
+                    supported, subtype_delta = False, 0.
+                    l1_reason = ('no_measurable_marker_winner' if best is None else
+                                 'insufficient_marker_support' if not strong else
+                                 'marker_reference_conflict' if atlas_l1 is not None and atlas_l1 != best
+                                 and purity >= cfg.atlas_purity and vote >= cfg.atlas_vote else
+                                 'marker_supported_current' if decision == 'Keep' else
+                                 'marker_reference_agreement' if decision == 'Reassign' else
+                                 'reference_support_insufficient')
+                    subtype_reason = ('awaiting_new_pool' if decision == 'Reassign' else
+                                      'coarse_identity_unresolved')
                     if decision == "Keep":
                         candidates = [name for name, parent in cfg.l2_parent.items() if parent == target]
+                        subtype_reason = 'no_subtype_panel'
                         if candidates:
-                            subtype, supported, _ = _best(l2_scores[candidates], indices,
-                                                          l2_coverage, fixed, cfg, cfg.subtype_margin)
+                            subtype, supported, subtype_delta = _best(
+                                l2_scores[candidates], indices, l2_coverage, fixed, cfg, cfg.subtype_margin)
                             subtype_conflict = (l2_purity >= cfg.atlas_purity and l2_vote >= cfg.atlas_vote
                                                 and atlas_l2 != subtype)
+                            subtype_reason = ('no_measurable_marker_winner' if subtype is None else
+                                              'insufficient_marker_support' if not supported else
+                                              'marker_reference_conflict' if subtype_conflict else
+                                              'marker_supported')
                             if supported and not subtype_conflict:
                                 l2[subset] = subtype
                     round_rows.append({"iteration": iteration, "cluster": cid, "pool": pool,
@@ -327,7 +349,10 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
                                        "marker_margin": delta, "marker_strong": strong,
                                        "atlas_l1": atlas_l1, "atlas_purity": purity,
                                        "atlas_vote": vote, "atlas_l2": atlas_l2, "atlas_l2_purity": l2_purity,
-                                       "atlas_l2_vote": l2_vote, "decision": decision})
+                                       "atlas_l2_vote": l2_vote, "decision": decision,
+                                       "l1_reason": l1_reason, "l2_marker_best": subtype,
+                                       "l2_marker_strong": supported, "l2_marker_margin": subtype_delta,
+                                       "l2_reason": subtype_reason, "selected_l2": str(l2[subset[0]])})
                 if changed:
                     moves.append(changed / len(members))
                 for level, marker_sets in [("l1", l1_coverage), ("l2", l2_coverage)]:
@@ -344,19 +369,42 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
         signature = tuple(new)
         reason_now = stopping_reason(moves, cfg.movement_tolerance, signature in seen,
                                      iteration, cfg.max_iterations)
+        assessments = [assess_decision(row, parameters) for row in round_rows]
+        control = control_loop(assessments, moved_cells=int(moved.sum()),
+                               repeated=signature in seen, iteration=iteration,
+                               limit=cfg.max_iterations,
+                               skipped_cells=sum(p['size'] for p in pool_rows if p.get('reason')),
+                               numerical_stop=reason_now)
+        rubric_rounds.append({'iteration': iteration, 'control': control, 'decisions': assessments,
+                              'evidence': {'decisions': 'decisions.csv',
+                                           'membership': f'round_{iteration}_cells.csv',
+                                           'parameters': 'config.json', 'markers': 'dotplot_data.csv'}})
+        write_json(out / 'rubric.json', {'version': VERSION, 'mode': 'runtime', 'rounds': rubric_rounds})
+        if control['reason'] == 'invalid_assignment':
+            # Save rejected proposals as diagnostic evidence, never as final labels.
+            pd.DataFrame(all_decisions + round_rows).to_csv(out / 'decisions.csv', index=False)
+            pd.DataFrame(dot_rows).to_csv(out / 'dotplot_data.csv', index=False)
+            pd.DataFrame({'cell_id': obj.obs_names, 'pool': pools, 'cluster': cluster_ids,
+                          'before_l1': current, 'after_l1': new, 'l2': l2,
+                          'decision': status}).to_csv(out / f'round_{iteration}_cells.csv', index=False)
+            write_json(out / 'iterations.json', history + [{
+                'iteration': iteration, 'pools': pool_rows, 'stop_reason': 'invalid_assignment',
+                'rubric_action': control['action'], 'rubric_reason': control['reason']}])
+            raise ValueError('Rubric blocked an unsupported assignment; inspect hierarchy/rubric.json')
         movement_by_pool = {pool: float(moved[pools == pool].mean()) for pool in set(pools)}
         history.append({"iteration": iteration, "moved_cells": int(moved.sum()),
                         "max_cluster_fraction": max(moves, default=0),
                         "total_fraction_by_pool": movement_by_pool,
-                        "pools": pool_rows, "stop_reason": reason_now})
+                        "pools": pool_rows, "stop_reason": reason_now,
+                        "rubric_action": control['action'], "rubric_reason": control['reason']})
         pd.DataFrame({"cell_id": obj.obs_names, "pool": pools, "cluster": cluster_ids,
                       "before_l1": current, "after_l1": new, "l2": l2,
                       "decision": status}).to_csv(out / f"round_{iteration}_cells.csv", index=False)
         all_decisions.extend(round_rows)
         current = new
         seen.add(signature)
-        if reason_now:
-            reason = reason_now
+        if control['action'] != 'continue':
+            reason = reason_now or control['reason']
             break
     obj.obs["oa_l1"] = current
     obj.obs["oa_l2"] = l2
@@ -367,13 +415,17 @@ def run_hierarchy(obj: ad.AnnData, cfg: HierarchyConfig, out: Path,
     obj.obs["oa_hierarchy_label"] = np.where((status == "Keep") & (selected != "Unknown"), selected, "Uncertain")
     decision_columns = ["iteration", "cluster", "pool", "n_cells", "source_l1", "target_l1",
                         "marker_best", "marker_margin", "marker_strong", "atlas_l1", "atlas_purity",
-                        "atlas_vote", "atlas_l2", "atlas_l2_purity", "atlas_l2_vote", "decision"]
+                        "atlas_vote", "atlas_l2", "atlas_l2_purity", "atlas_l2_vote", "decision",
+                        "l1_reason", "l2_marker_best", "l2_marker_strong", "l2_marker_margin",
+                        "l2_reason", "selected_l2"]
     pd.DataFrame(all_decisions, columns=decision_columns).to_csv(out / "decisions.csv", index=False)
     dot_columns = ["iteration", "cluster", "level", "label", "gene", "mean_log_expression", "fraction_detected"]
     pd.DataFrame(dot_rows, columns=dot_columns).to_csv(out / "dotplot_data.csv", index=False)
     write_json(out / "iterations.json", history)
     summary = {"iterations": len(history), "stop_reason": reason,
-               "converged": reason in {"exact_stability", "tolerance"} and bool(np.any(status == "Keep")), "mode": cfg.mode,
+               "converged": control['action'] == 'accept', "mode": cfg.mode,
+               "rubric_action": control['action'], "rubric_reason": control['reason'],
+               "numerically_stable": reason in {"exact_stability", "tolerance"},
                "status_counts": pd.Series(status).value_counts().to_dict(),
                "reference_sha256": sha256(cfg.reference) if cfg.reference else None,
                "reference_backend": "reference_fitted_pca_knn" if cfg.reference else "none",
